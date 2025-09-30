@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    line-height: 150%;
+    background-color: #e1d4c9;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 40px;
+}
