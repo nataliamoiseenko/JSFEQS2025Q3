@@ -1,0 +1,59 @@
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .enjoy__content {
+    padding: 100px 60px;
+  }
+
+  .enjoy__heading {
+    font-size: 72px;
+    line-height: 105%;
+    letter-spacing: 1.5px;
+  }
+
+  .enjoy__paragraph {
+    letter-spacing: 0.15px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header__content-navigation-list {
+    margin: 0;
+    padding: 0 0 5px;
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+  }
+
+  .header__menu-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .header__menu-link-text {
+    padding-bottom: 5px;
+  }
+
+  .header__burger-menu {
+    display: none;
+  }
+
+  .enjoy__content {
+    padding: 100px 100px;
+  }
+
+  .enjoy__content-wrapper {
+    width: 50%;
+  }
+
+  .enjoy__paragraph {
+    padding-right: 11px;
+  }
+
+  .enjoy__button-img {
+    display: none;
+  }
+}

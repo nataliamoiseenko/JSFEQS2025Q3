@@ -1,3 +1,5 @@
 @import url(fonts/fonts.css);
 @import url(global/global.css);
-@import url(header/header.css);
+@import url(global/vars.css);
+@import url(components/components.css);
+@import url(media-queries/media-queries.css);

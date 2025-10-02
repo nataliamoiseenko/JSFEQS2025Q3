@@ -1,0 +1,40 @@
+.enjoy__content {
+  padding: 60px 16px;
+  background-image: url(/assets/images/img-hero.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 40px;
+}
+
+.enjoy__heading {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 115%;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+}
+
+.text-highlighted {
+  font-style: italic;
+  color: var(--text-accent);
+}
+
+.enjoy__paragraph {
+  margin: 40px 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  color: var(--text-light);
+}
+
+.enjoy__button {
+  width: 200px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100px;
+  background-color: var(--bg-body);
+}

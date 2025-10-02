@@ -1,39 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="icon" href="assets/svg/coffee-cup.svg" />
-        <title>Coffee House</title>
-    </head>
-    <body>
-        <header class="header">
-            <div class="container">
-                <div class="header__content">
-                    <img class="logo-img" src="assets/svg/logo.svg" alt="logo" />
-                    <nav class="header__content-navigation">
-                        <ul class="header__content-navigation-list">
-                            <li class="header__content-navigation-list-item">
-                                <a class="header__content-navigation-list-link"> Favorite coffee </a>
-                            </li>
-                            <li class="header__content-navigation-list-item">
-                                <a class="header__content-navigation-list-link"> About </a>
-                            </li>
-                            <li class="header__content-navigation-list-item">
-                                <a class="header__content-navigation-list-link"> Mobile app </a>
-                            </li>
-                            <li class="header__content-navigation-list-item">
-                                <a class="header__content-navigation-list-link"> Contact us </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="header__content-logo">
-                        <span class="header__content-logo-text">Menu</span>
-                        <img src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
-                    </div>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/svg/coffee-cup.svg" />
+    <title>Coffee House</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <img class="logo-img" src="assets/svg/logo.svg" alt="logo" />
+
+          <nav class="header__content-navigation">
+            <ul class="header__content-navigation-list">
+              <li class="header__content-navigation-list-item">
+                <a class="header__content-navigation-list-link">Favorite coffee</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a class="header__content-navigation-list-link">About</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a class="header__content-navigation-list-link">Mobile app</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a class="header__content-navigation-list-link">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="#menu" class="header__menu-link">
+            <span class="header__menu-link-text">Menu</span>
+            <img src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
+          </a>
+
+          <div class="header__burger-menu">
+            <input id="header__burger-menu-toggle" type="checkbox" />
+            <label class="header__burger-menu-button" for="header__burger-menu-toggle">
+              <div class="header__burger-menu-button-vector"></div>
+              <div class="header__burger-menu-button-vector"></div>
+            </label>
+            <div class="header__burger-menu-open">
+              <ul class="header__burger-menu-list">
+                <li class="header__burger-menu-list-item">
+                  <a href="#" class="header__burger-menu-list-link">Favorite coffee</a>
+                </li>
+                <li class="header__burger-menu-list-item">
+                  <a href="#about" class="header__burger-menu-list-link">About</a>
+                </li>
+                <li class="header__burger-menu-list-item">
+                  <a href="#service" class="header__burger-menu-list-link">Mobile app</a>
+                </li>
+                <li class="header__burger-menu-list-item">
+                  <a href="#prices" class="header__burger-menu-list-link">Contact us</a>
+                </li>
+              </ul>
+
+              <a href="#menu" class="header__burger-menu-link">
+                <span class="header__burger-menu-link-text">Menu</span>
+                <img class="burger-menu-img" src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
+              </a>
             </div>
-        </header>
-    </body>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="enjoy">
+        <div class="container">
+          <div class="enjoy__content">
+            <div class="enjoy__content-wrapper">
+              <h1 class="enjoy__heading">
+                <span class="text-highlighted">Enjoy</span> premium coffee at our charming cafe
+              </h1>
+              <p class="enjoy__paragraph">
+                With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular
+                destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite
+                beverage.
+              </p>
+              <a href="#menu" class="enjoy__button">
+                <span class="enjoy__button-text">Menu</span>
+                <img class="enjoy__button-img" src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
 </html>

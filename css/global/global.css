@@ -1,21 +1,29 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    line-height: 150%;
-    background-color: #e1d4c9;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 150%;
+  background-color: var(--bg-body);
+}
+
+a {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: var(--text-dark);
+  text-decoration: none;
 }
 
 .container {
-    margin: 0 auto;
-    padding: 0 40px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
