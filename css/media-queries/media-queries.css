@@ -16,6 +16,27 @@
   .enjoy__paragraph {
     letter-spacing: 0.15px;
   }
+
+  .favourites__heading {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 1.1px;
+  }
+
+  .favourites__slider-content {
+    gap: 45px;
+  }
+
+  .favourites__slider-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .favourites__slider-btn {
+    display: flex;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -55,5 +76,14 @@
 
   .enjoy__button-img {
     display: none;
+  }
+
+  .favourites__img {
+    max-width: 480px;
+    margin-bottom: 17px;
+  }
+
+  .favourites__slider-subtitle {
+    max-width: 480px;
   }
 }
