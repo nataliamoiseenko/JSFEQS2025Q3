@@ -46,6 +46,25 @@
   .about__image {
     transform: scale(1.05);
   }
+
+  .mobile-app__heading {
+    font-size: 60px;
+    letter-spacing: 1.1px;
+  }
+
+  .mobile-app__button-wrapper {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .mobile-app__wrapper {
+    gap: 100px;
+  }
+
+  .mobile-app__image {
+    width: 630px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -126,5 +145,14 @@
 
   .about__image {
     transform: scale(1.1);
+  }
+
+  .mobile-app__wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .mobile-app__paragraph {
+    letter-spacing: 0.2px;
   }
 }

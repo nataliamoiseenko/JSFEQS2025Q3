@@ -1,0 +1,47 @@
+.mobile-app__heading {
+  margin-bottom: 40px;
+  color: var(--text-dark);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.mobile-app__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mobile-app__paragraph {
+  margin-bottom: 40px;
+  letter-spacing: 0.1px;
+}
+
+.mobile-app__image {
+  width: 100%;
+}
+
+.mobile-app__button {
+  padding: 9px 22px;
+  width: 200px;
+  display: flex;
+  gap: 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border-dark);
+}
+
+.mobile-app__button-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-app__button-text-title {
+  font-size: 10px;
+  line-height: 19px;
+}
+
+.mobile-app__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
