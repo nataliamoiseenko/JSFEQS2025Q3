@@ -7,16 +7,16 @@
     padding: 100px 60px;
   }
 
-  .favourites__slider-content {
-    gap: 45px;
-  }
-
-  .favourites__slider-btn {
+  .favourites__carousel-btn {
     display: flex;
   }
 
-  .favourites__slider-subtitle {
+  .favourites__carousel-subtitle {
     padding: 0 10px;
+  }
+
+  .favourites__carousel-item {
+    max-width: 480px;
   }
 
   .about__image {
@@ -94,12 +94,7 @@
     display: block;
   }
 
-  .favourites__img {
-    max-width: 480px;
-    margin-bottom: 17px;
-  }
-
-  .favourites__slider-caption {
+  .favourites__carousel-caption {
     max-width: 480px;
   }
 
