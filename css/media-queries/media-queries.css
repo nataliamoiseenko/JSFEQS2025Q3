@@ -7,49 +7,20 @@
     padding: 100px 60px;
   }
 
-  .enjoy__heading {
-    font-size: 72px;
-    line-height: 105%;
-    letter-spacing: 1.5px;
-  }
-
-  .enjoy__paragraph {
-    letter-spacing: 0.15px;
-  }
-
-  .favourites__heading {
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 125%;
-    letter-spacing: 1.1px;
-  }
-
   .favourites__slider-content {
     gap: 45px;
-  }
-
-  .favourites__slider-subtitle {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 150%;
   }
 
   .favourites__slider-btn {
     display: flex;
   }
 
-  .about__heading {
-    font-size: 60px;
-    letter-spacing: 1.1px;
+  .favourites__slider-subtitle {
+    padding: 0 10px;
   }
 
   .about__image {
     transform: scale(1.05);
-  }
-
-  .mobile-app__heading {
-    font-size: 60px;
-    letter-spacing: 1.1px;
   }
 
   .mobile-app__button-wrapper {
@@ -64,6 +35,19 @@
   .mobile-app__image {
     width: 630px;
     margin: 0 auto;
+  }
+
+  .footer__tile {
+    padding: 100px 60px;
+    gap: 100px;
+  }
+
+  .footer__heading {
+    letter-spacing: 2px;
+  }
+
+  .footer__heading .heading-2-accent {
+    letter-spacing: 1.2px;
   }
 }
 
@@ -106,17 +90,17 @@
     display: none;
   }
 
+  .enjoy__button:hover > .enjoy__button-img {
+    display: block;
+  }
+
   .favourites__img {
     max-width: 480px;
     margin-bottom: 17px;
   }
 
-  .favourites__slider-subtitle {
+  .favourites__slider-caption {
     max-width: 480px;
-  }
-
-  .about__heading {
-    letter-spacing: 0.9px;
   }
 
   .about__image-wrapper {
@@ -154,5 +138,15 @@
 
   .mobile-app__paragraph {
     letter-spacing: 0.2px;
+  }
+
+  .footer__tile {
+    padding: 100px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer__tile > div {
+    flex: 1 0 0;
   }
 }

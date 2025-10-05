@@ -1,9 +1,6 @@
 .mobile-app__heading {
   margin-bottom: 40px;
   color: var(--text-dark);
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 125%;
 }
 
 .mobile-app__wrapper {
@@ -14,6 +11,7 @@
 
 .mobile-app__paragraph {
   margin-bottom: 40px;
+  color: var(--text-dark);
   letter-spacing: 0.1px;
 }
 
@@ -22,7 +20,7 @@
 }
 
 .mobile-app__button {
-  padding: 9px 22px;
+  padding: 10px 22px;
   width: 200px;
   display: flex;
   gap: 10px;
@@ -33,6 +31,10 @@
 .mobile-app__button-text {
   display: flex;
   flex-direction: column;
+}
+
+.app-store-text {
+  padding-left: 3px;
 }
 
 .mobile-app__button-text-title {

@@ -11,7 +11,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  line-height: 150%;
+  /* line-height: 150%; */
   background-color: var(--bg-body);
 }
 
@@ -23,7 +23,7 @@ h5,
 h6,
 p {
   margin: 0;
-  letter-spacing: 0.6px;
+  /* letter-spacing: 0.6px; */
 }
 
 main {
@@ -38,6 +38,12 @@ a {
   line-height: 150%;
   color: var(--text-dark);
   text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .container {
