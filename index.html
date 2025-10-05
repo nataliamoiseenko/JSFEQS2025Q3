@@ -35,25 +35,26 @@
             <img src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
           </a>
 
+          <script defer src="scripts/burgerMenu.js"></script>
           <div class="header__burger-menu">
-            <input id="header__burger-menu-toggle" type="checkbox" />
-            <label class="header__burger-menu-button" for="header__burger-menu-toggle">
+            <input id="burger-menu-toggle" type="checkbox" />
+            <label class="header__burger-menu-button" for="burger-menu-toggle">
               <div class="header__burger-menu-button-vector"></div>
               <div class="header__burger-menu-button-vector"></div>
             </label>
             <div class="header__burger-menu-open">
               <ul class="header__burger-menu-list">
                 <li class="header__burger-menu-list-item">
-                  <a href="#" class="header__burger-menu-list-link burger-link">Favorite coffee</a>
+                  <a href="#favourites" class="header__burger-menu-list-link burger-link">Favorite coffee</a>
                 </li>
                 <li class="header__burger-menu-list-item">
                   <a href="#about" class="header__burger-menu-list-link burger-link">About</a>
                 </li>
                 <li class="header__burger-menu-list-item">
-                  <a href="#service" class="header__burger-menu-list-link burger-link">Mobile app</a>
+                  <a href="#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
                 </li>
                 <li class="header__burger-menu-list-item">
-                  <a href="#prices" class="header__burger-menu-list-link burger-link">Contact us</a>
+                  <a href="#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
                 </li>
               </ul>
 
@@ -89,7 +90,7 @@
         </div>
       </section>
 
-      <section class="favourites">
+      <section class="favourites" id="favourites">
         <script defer src="scripts/carousel.js"></script>
         <div class="container">
           <h2 class="favourites__heading heading-2">
@@ -126,7 +127,7 @@
         </div>
       </section>
 
-      <section class="about">
+      <section class="about" id="about">
         <div class="container">
           <h2 class="about__heading heading-2">
             Resource is <span class="heading-2-accent">the perfect and cozy place</span> where you can enjoy a variety
@@ -154,7 +155,7 @@
         </div>
       </section>
 
-      <section class="mobile-app">
+      <section class="mobile-app" id="mobile-app">
         <div class="container">
           <div class="mobile-app__wrapper">
             <div class="mobile-app__info">
@@ -246,7 +247,7 @@
             </ul>
           </div>
 
-          <div>
+          <div id="contact-us">
             <p class="footer__contact-us heading-3">Contact us</p>
 
             <ul class="footer__contacts">
