@@ -49,6 +49,10 @@
   .footer__heading .heading-2-accent {
     letter-spacing: 1.2px;
   }
+
+  .menu__tabs {
+    gap: 16px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -143,5 +147,22 @@
 
   .footer__tile > div {
     flex: 1 0 0;
+  }
+
+  .menu__offer {
+    margin-bottom: 39px;
+  }
+
+  .menu__grid {
+    gap: 40px;
+  }
+
+  .menu__grid-hidden {
+    margin-top: 38px;
+    display: flex;
+  }
+
+  .menu__refresh-btn {
+    display: none;
   }
 }

@@ -93,11 +93,14 @@
   gap: 60px;
 }
 
-.header__burger-menu-link {
-  margin-top: 100px;
+.header__burger-menu-list-link {
   display: flex;
   justify-content: center;
   gap: 16px;
+}
+
+.header__burger-menu-link {
+  margin-top: 100px;
 }
 
 .burger-menu-img {

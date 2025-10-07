@@ -1,0 +1,125 @@
+.menu {
+  /* padding: 40px 0; */
+}
+
+.menu__offer {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.menu__heading {
+  max-width: 800px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.menu__tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.menu__tab {
+  flex: 1 0 0;
+}
+
+.menu__tab-btn {
+  height: 46px;
+  padding: 8px 16px 8px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 23px;
+  color: var(--text-dark);
+}
+
+.menu__tab-btn._active,
+.menu__tab-btn:hover {
+  background-color: var(--bg-container);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.menu__tab-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--border-light);
+}
+
+.menu__tab-icon._active,
+.menu__tab-btn:hover .menu__tab-icon {
+  background-color: var(--bg-body);
+  transition: all 0.3s ease;
+}
+
+.menu__grid-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 38px;
+}
+
+.menu__preview-item {
+  width: 310px;
+  border: 1px solid var(--border-light);
+  border-radius: 40px;
+}
+
+.menu__preview-item-link {
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.menu__preview-item-description {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu__img-container {
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.menu__img {
+  width: 310px;
+  transform: scale(1.1);
+}
+
+.menu__preview-item-subtitle {
+  min-height: 72px;
+  letter-spacing: 0.1px;
+}
+
+.menu__refresh-btn {
+  margin-top: 40px;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__grid-hidden {
+  display: none;
+}
