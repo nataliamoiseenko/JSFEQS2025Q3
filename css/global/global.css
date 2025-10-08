@@ -71,3 +71,11 @@ input {
   -o-appearance: none;
   appearance: none;
 }
+
+svg.fillCurrent *[fill] {
+  fill: currentColor;
+}
+
+svg.fillCurrent *[stroke] {
+  stroke: currentColor;
+}

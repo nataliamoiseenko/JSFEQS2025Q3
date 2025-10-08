@@ -23,9 +23,17 @@
   padding: 10px 22px;
   width: 200px;
   display: flex;
+  align-items: center;
   gap: 10px;
   border-radius: 100px;
   border: 1px solid var(--border-dark);
+  transition: all 0.3s ease;
+}
+
+.mobile-app__button:hover {
+  cursor: pointer;
+  background-color: var(--bg-container);
+  color: var(--text-light);
 }
 
 .mobile-app__button-text {

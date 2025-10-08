@@ -9,6 +9,12 @@
 
   .favourites__carousel-btn {
     display: flex;
+    transition: all 0.3s ease;
+  }
+
+  .favourites__carousel-btn:hover {
+    color: var(--text-light);
+    background-color: var(--bg-container);
   }
 
   .favourites__carousel-subtitle {
@@ -30,6 +36,10 @@
 
   .mobile-app__wrapper {
     gap: 100px;
+  }
+
+  .mobile-app__paragraph {
+    margin-bottom: 42px;
   }
 
   .mobile-app__image {
@@ -77,6 +87,11 @@
     width: 310px;
     height: 310px;
     transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .modal__img:hover {
+    transform: none;
   }
 }
 
@@ -89,10 +104,20 @@
     list-style-type: none;
   }
 
+  .header__content-navigation-list-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
   .header__menu-link {
     display: flex;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  .header__menu-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .header__menu-link-text {

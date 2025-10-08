@@ -55,12 +55,6 @@
   letter-spacing: 1.2px;
 }
 
-/* .text-highlighted {
-  font-family: 'Inter-Italic';
-  font-style: italic;
-  color: var(--text-accent);
-} */
-
 @media screen and (min-width: 768px) {
   .heading-1 {
     font-size: 72px;

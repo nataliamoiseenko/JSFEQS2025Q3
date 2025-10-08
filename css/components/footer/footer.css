@@ -28,6 +28,7 @@
   height: 60px;
   border: 1px solid var(--border-light);
   border-radius: 50%;
+  overflow: hidden;
 }
 
 .footer__social-link {
@@ -37,6 +38,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.footer__social-link:hover {
+  color: var(--text-dark);
+  background-color: var(--bg-body);
 }
 
 .footer__contact-us {
@@ -53,6 +61,12 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  font-weight: 600;
   line-height: 175%;
   letter-spacing: 0.3px;
+}
+
+.footer__contact-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

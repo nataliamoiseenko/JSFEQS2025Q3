@@ -31,13 +31,13 @@
   border: 1px solid var(--border-light);
   border-radius: 23px;
   color: var(--text-dark);
+  transition: all 0.3s ease;
 }
 
 .menu__tab-btn._active,
 .menu__tab-btn:hover {
   background-color: var(--bg-container);
   color: var(--text-light);
-  transition: all 0.3s ease;
 }
 
 .menu__tab-icon {
@@ -48,12 +48,12 @@
   align-items: center;
   border-radius: 50%;
   background-color: var(--border-light);
+  transition: all 0.3s ease;
 }
 
 .menu__tab-icon._active,
 .menu__tab-btn:hover .menu__tab-icon {
   background-color: var(--bg-body);
-  transition: all 0.3s ease;
 }
 
 .menu__grid-content {
@@ -96,6 +96,11 @@
 .menu__img {
   width: 310px;
   transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu__img:hover {
+  transform: none;
 }
 
 .menu__preview-item-subtitle {
