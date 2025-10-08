@@ -5,4 +5,5 @@
 @import url(components/header/header.css);
 @import url(components/footer/footer.css);
 @import url(components/menu/menu.css);
+@import url(components/modal/modal.css);
 @import url(media-queries/media-queries.css);
