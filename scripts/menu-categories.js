@@ -4,6 +4,16 @@ const ulGrid = document.getElementsByClassName('menu__grid')[0];
 const radioBtns = document.querySelectorAll('input[name="menu-tab-btn"]');
 const refreshBtn = document.getElementById('refresh-btn');
 
+const modal = document.getElementById('modal');
+const modalBg = document.getElementById('modal-bg');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalSizes = document.getElementById('modal-sizes');
+const modalAdds = document.getElementById('modal-adds');
+const modalPrice = document.getElementById('modal-price');
+const modalCloseBtn = document.getElementById('modal-close');
+
 const createCardLi = (params) => {
   const img = document.createElement('img');
   img.classList.add('menu__img');
@@ -32,6 +42,7 @@ const createCardLi = (params) => {
 
   const btn = document.createElement('button');
   btn.classList.add('menu__preview-item-link');
+  btn.addEventListener('click', toggleModal.bind(null, params));
   btn.appendChild(imgContainer);
   btn.appendChild(descContainer);
 
@@ -40,6 +51,88 @@ const createCardLi = (params) => {
   li.appendChild(btn);
 
   return li;
+};
+
+const toggleModal = (params, isOpen = true) => {
+  if (params) {
+    modalImg.src = params.imgSrc;
+    modalImg.alt = `${params.name} image`;
+
+    modalTitle.innerText = params.name;
+    modalDesc.innerText = params.description;
+
+    modalSizes.replaceChildren();
+    Object.entries(params.sizes).forEach(([key, value], i) => {
+      const label = document.createElement('label');
+      label.classList.add('modal__option-container', 'button-link');
+      label.htmlFor = value.size;
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.id = value.size;
+      input.name = 'size';
+      input.value = value['add-price'];
+      if (i === 0) input.checked = true;
+      input.addEventListener('change', calculatePrice.bind(null, params.price));
+
+      const div = document.createElement('div');
+      div.classList.add('modal__option-label');
+      div.innerText = `${key}`.toUpperCase();
+
+      const span = document.createElement('span');
+      span.innerText = value.size;
+
+      label.appendChild(input);
+      label.appendChild(div);
+      label.appendChild(span);
+
+      modalSizes.appendChild(label);
+    });
+
+    modalAdds.replaceChildren();
+    params.additives.forEach((a, i) => {
+      const label = document.createElement('label');
+      label.classList.add('modal__option-container', 'button-link');
+      label.htmlFor = a.name;
+
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.id = a.name;
+      input.name = 'additives';
+      input.value = a['add-price'];
+      input.addEventListener('change', calculatePrice.bind(null, params.price));
+
+      const div = document.createElement('div');
+      div.classList.add('modal__option-label');
+      div.innerText = `${i + 1}`;
+
+      const span = document.createElement('span');
+      span.innerText = a.name;
+
+      label.appendChild(input);
+      label.appendChild(div);
+      label.appendChild(span);
+
+      modalAdds.appendChild(label);
+    });
+
+    calculatePrice(params.price);
+  }
+
+  isOpen ? modal.classList.add('_active') : modal.classList.remove('_active');
+  isOpen ? document.body.classList.add('no-scroll') : document.body.classList.remove('no-scroll');
+};
+
+const calculatePrice = (basePrice) => {
+  let totalPrice = Number(basePrice);
+  modalSizes.querySelectorAll('input[name="size"]').forEach((i) => {
+    if (i.checked) totalPrice += Number(i.value);
+  });
+  modalAdds.querySelectorAll('input[name="additives"]').forEach((i) => {
+    if (i.checked) totalPrice += Number(i.value);
+  });
+
+  modalPrice.innerText = `$${totalPrice.toFixed(2)}`;
 };
 
 const doFilter = () => {
@@ -73,3 +166,6 @@ refreshBtn.addEventListener('click', () => {
     refreshBtn.classList.remove('_active');
   });
 });
+
+modalBg.addEventListener('click', toggleModal.bind(null, null, false));
+modalCloseBtn.addEventListener('click', toggleModal.bind(null, null, false));
