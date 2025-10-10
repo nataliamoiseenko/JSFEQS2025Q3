@@ -34,7 +34,7 @@
             </ul>
           </nav>
 
-          <a href="#menu" class="header__menu-link">
+          <a href="#menu" class="header__menu-link header__menu-link-active">
             <span class="header__menu-link-text">Menu</span>
             <img src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
           </a>
@@ -43,8 +43,8 @@
           <div class="header__burger-menu">
             <input id="burger-menu-toggle" type="checkbox" />
             <label class="header__burger-menu-button" for="burger-menu-toggle">
-              <div class="header__burger-menu-button-vector"></div>
-              <div class="header__burger-menu-button-vector"></div>
+              <span class="header__burger-menu-button-vector"></span>
+              <span class="header__burger-menu-button-vector"></span>
             </label>
             <div class="header__burger-menu-open">
               <ul class="header__burger-menu-list">
@@ -76,7 +76,7 @@
 
     <main>
       <section class="menu" id="menu">
-        <script defer type="module" src="scripts/menu-categories.js"></script>
+        <script type="module" src="scripts/menu-categories.js"></script>
         <div class="container">
           <div class="menu__offer">
             <h2 class="menu__heading heading-2">
@@ -87,27 +87,27 @@
               <div class="menu__tab">
                 <label id="coffeeTabBtn" class="menu__tab-btn button-link">
                   <input id="coffeeTabInput" type="radio" name="menu-tab-btn" value="coffee" checked />
-                  <div class="menu__tab-icon">
+                  <span class="menu__tab-icon">
                     <img src="assets/images/menu-tab-icon-1.png" alt="coffee-tab-icon" />
-                  </div>
+                  </span>
                   Coffee
                 </label>
               </div>
               <div class="menu__tab">
                 <label id="teaTabBtn" class="menu__tab-btn button-link">
                   <input id="teaTabInput" type="radio" name="menu-tab-btn" value="tea" />
-                  <div class="menu__tab-icon">
+                  <span class="menu__tab-icon">
                     <img src="assets/images/menu-tab-icon-2.png" alt="tea-tab-icon" />
-                  </div>
+                  </span>
                   Tea
                 </label>
               </div>
               <div class="menu__tab">
                 <label id="dessertTabBtn" class="menu__tab-btn button-link">
                   <input id="dessertTabInput" type="radio" name="menu-tab-btn" value="dessert" />
-                  <div class="menu__tab-icon">
+                  <span class="menu__tab-icon">
                     <img src="assets/images/menu-tab-icon-3.png" alt="dessert-tab-icon" />
-                  </div>
+                  </span>
                   Dessert
                 </label>
               </div>
@@ -129,11 +129,11 @@
         <div class="modal__content">
           <div class="modal-description-card">
             <div class="modal__img-container">
-              <img class="modal__img" id="modal-img" />
+              <img class="modal__img" id="modal-img" src="assets/images/coffee-1.jpg" alt="" />
             </div>
             <div class="modal__description">
               <div>
-                <h3 class="modal__description-heading heading-3" id="modal-title"></h3>
+                <h3 class="modal__description-heading heading-3" id="modal-title">Placeholder</h3>
                 <p class="modal__description-subtitle body-medium" id="modal-desc"></p>
               </div>
               <form>

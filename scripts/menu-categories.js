@@ -75,16 +75,16 @@ const toggleModal = (params, isOpen = true) => {
       if (i === 0) input.checked = true;
       input.addEventListener('change', calculatePrice.bind(null, params.price));
 
-      const div = document.createElement('div');
-      div.classList.add('modal__option-label');
-      div.innerText = `${key}`.toUpperCase();
+      const span1 = document.createElement('span');
+      span1.classList.add('modal__option-label');
+      span1.innerText = `${key}`.toUpperCase();
 
-      const span = document.createElement('span');
-      span.innerText = value.size;
+      const span2 = document.createElement('span');
+      span2.innerText = value.size;
 
       label.appendChild(input);
-      label.appendChild(div);
-      label.appendChild(span);
+      label.appendChild(span1);
+      label.appendChild(span2);
 
       modalSizes.appendChild(label);
     });
@@ -102,16 +102,16 @@ const toggleModal = (params, isOpen = true) => {
       input.value = a['add-price'];
       input.addEventListener('change', calculatePrice.bind(null, params.price));
 
-      const div = document.createElement('div');
-      div.classList.add('modal__option-label');
-      div.innerText = `${i + 1}`;
+      const span1 = document.createElement('span');
+      span1.classList.add('modal__option-label');
+      span1.innerText = `${i + 1}`;
 
-      const span = document.createElement('span');
-      span.innerText = a.name;
+      const span2 = document.createElement('span');
+      span2.innerText = a.name;
 
       label.appendChild(input);
-      label.appendChild(div);
-      label.appendChild(span);
+      label.appendChild(span1);
+      label.appendChild(span2);
 
       modalAdds.appendChild(label);
     });

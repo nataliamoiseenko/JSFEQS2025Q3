@@ -93,6 +93,9 @@
   background-color: transparent;
   line-height: 0;
   border: none;
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .menu__preview-item-description {
