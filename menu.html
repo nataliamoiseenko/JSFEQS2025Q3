@@ -76,164 +76,50 @@
 
     <main>
       <section class="menu" id="menu">
+        <script defer type="module" src="scripts/menu-categories.js"></script>
         <div class="container">
           <div class="menu__offer">
             <h2 class="menu__heading heading-2">
               Behind each of our cups hides an <span class="heading-2-accent">amazing surprise</span>
             </h2>
 
-            <ul class="menu__tabs">
-              <li class="menu__tab">
-                <button class="menu__tab-btn button-link _active">
-                  <div class="menu__tab-icon _active">
+            <fieldset class="menu__tabs">
+              <div class="menu__tab">
+                <label id="coffeeTabBtn" class="menu__tab-btn button-link">
+                  <input id="coffeeTabInput" type="radio" name="menu-tab-btn" value="coffee" checked />
+                  <div class="menu__tab-icon">
                     <img src="assets/images/menu-tab-icon-1.png" alt="coffee-tab-icon" />
                   </div>
                   Coffee
-                </button>
-              </li>
-              <li class="menu__tab">
-                <button class="menu__tab-btn button-link">
+                </label>
+              </div>
+              <div class="menu__tab">
+                <label id="teaTabBtn" class="menu__tab-btn button-link">
+                  <input id="teaTabInput" type="radio" name="menu-tab-btn" value="tea" />
                   <div class="menu__tab-icon">
                     <img src="assets/images/menu-tab-icon-2.png" alt="tea-tab-icon" />
                   </div>
                   Tea
-                </button>
-              </li>
-              <li class="menu__tab">
-                <button class="menu__tab-btn button-link">
+                </label>
+              </div>
+              <div class="menu__tab">
+                <label id="dessertTabBtn" class="menu__tab-btn button-link">
+                  <input id="dessertTabInput" type="radio" name="menu-tab-btn" value="dessert" />
                   <div class="menu__tab-icon">
                     <img src="assets/images/menu-tab-icon-3.png" alt="dessert-tab-icon" />
                   </div>
                   Dessert
-                </button>
-              </li>
-            </ul>
+                </label>
+              </div>
+            </fieldset>
           </div>
 
           <div class="menu__grid-content">
-            <ul class="menu__grid">
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-1.jpg" alt="coffee-1" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Irish coffee</h3>
-                    <p class="menu__preview-item-subtitle body-medium">
-                      Fragrant black coffee with Jameson Irish whiskey and whipped milk
-                    </p>
-                    <h3 class="menu__preview-item-price heading-3">$7.00</h3>
-                  </div>
-                </a>
-              </li>
+            <ul class="menu__grid"></ul>
 
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-2.jpg" alt="coffee-2" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Kahlua coffee</h3>
-                    <p class="menu__preview-item-subtitle body-medium">
-                      Classic coffee with milk and Kahlua liqueur under a cap of frothed milk
-                    </p>
-                    <h3 class="menu__preview-item-price heading-3">$7.00</h3>
-                  </div>
-                </a>
-              </li>
-
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-3.jpg" alt="coffee-3" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Honey raf</h3>
-                    <p class="menu__preview-item-subtitle body-medium">
-                      Espresso with frothed milk, cream and aromatic honey
-                    </p>
-                    <h3 class="menu__preview-item-price heading-3">$5.50</h3>
-                  </div>
-                </a>
-              </li>
-
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-4.jpg" alt="coffee-4" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Ice cappuccino</h3>
-                    <p class="menu__preview-item-subtitle body-medium">
-                      Cappuccino with soft thick foam in summer version with ice
-                    </p>
-                    <h3 class="menu__preview-item-price heading-3">$5.00</h3>
-                  </div>
-                </a>
-              </li>
-            </ul>
-
-            <button class="menu__refresh-btn" id="refresh-btn">
+            <button class="menu__refresh-btn _active" id="refresh-btn">
               <img src="assets/svg/refresh.svg" alt="refresh.svg" />
             </button>
-
-            <ul class="menu__grid menu__grid-hidden">
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-5.jpg" alt="coffee-5" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Espresso</h3>
-                    <p class="menu__preview-item-subtitle body-medium">Classic black coffee</p>
-                    <h3 class="menu__preview-item-price heading-3">$4.50</h3>
-                  </div>
-                </a>
-              </li>
-
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-6.jpg" alt="coffee-6" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Latte</h3>
-                    <p class="menu__preview-item-subtitle body-medium">
-                      Espresso coffee with the addition of steamed milk and dense milk foam
-                    </p>
-                    <h3 class="menu__preview-item-price heading-3">$5.50</h3>
-                  </div>
-                </a>
-              </li>
-
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-7.jpg" alt="coffee-7" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Latte macchiato</h3>
-                    <p class="menu__preview-item-subtitle body-medium">Espresso with frothed milk and chocolate</p>
-                    <h3 class="menu__preview-item-price heading-3">$5.50</h3>
-                  </div>
-                </a>
-              </li>
-
-              <li class="menu__preview-item">
-                <a class="menu__preview-item-link">
-                  <div class="menu__img-container">
-                    <img class="menu__img" src="assets/images/coffee-8.jpg" alt="coffee-8" />
-                  </div>
-                  <div class="menu__preview-item-description">
-                    <h3 class="menu__preview-item-heading heading-3">Coffee with cognac</h3>
-                    <p class="menu__preview-item-subtitle body-medium">
-                      Fragrant black coffee with cognac and whipped cream
-                    </p>
-                    <h3 class="menu__preview-item-price heading-3">$6.50</h3>
-                  </div>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </section>

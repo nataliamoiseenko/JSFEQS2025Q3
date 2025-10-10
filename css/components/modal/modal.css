@@ -49,10 +49,13 @@
   align-items: center;
   border: 1px solid var(--border-light);
   border-radius: 100px;
+  transition: all 0.3s ease;
 }
 
 .modal__option-container:hover {
   cursor: pointer;
+  background-color: var(--bg-container);
+  color: var(--text-light);
 }
 
 .modal__option-label {
@@ -65,6 +68,7 @@
   color: var(--text-dark);
   background-color: var(--border-light);
   border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
 .modal__option-container:has(input:checked) {
@@ -73,6 +77,10 @@
 }
 
 .modal__option-container input:checked + .modal__option-label {
+  background-color: var(--bg-body);
+}
+
+.modal__option-container:hover .modal__option-label {
   background-color: var(--bg-body);
 }
 

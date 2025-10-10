@@ -100,8 +100,18 @@
   gap: 16px;
 }
 
+.header__burger-menu-list-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .header__burger-menu-link {
   margin-top: 100px;
+}
+
+.header__burger-menu-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .burger-menu-img {
