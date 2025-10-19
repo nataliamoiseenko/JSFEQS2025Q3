@@ -9,6 +9,7 @@ type MenuItemAssitive = {
 };
 
 export type MenuItem = {
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -22,9 +23,18 @@ export type MenuItem = {
   additives: MenuItemAssitive[];
 };
 
-export type Slides = {
+export type FavoriteRaw = {
+  id: number;
   imgSrc: string;
-  title: string;
-  subtitle: string;
-  price: string;
 };
+
+export type FavoriteRes = {
+  id: number;
+  name: string;
+  description: string;
+  price: string;
+  discountPrice: string;
+  category: string;
+};
+
+export type Favorite = FavoriteRaw & FavoriteRes;
