@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="icon" href="assets/svg/coffee-cup.svg" />
+    <link rel="stylesheet" href="src/css/menu.css" />
+    <link rel="icon" href="src/assets/svg/coffee-cup.svg" />
     <title>Coffee House</title>
   </head>
   <body>
@@ -12,7 +12,7 @@
       <div class="container">
         <div class="header__content">
           <a href="index.html">
-            <img class="logo-img" src="assets/svg/logo.svg" alt="logo" />
+            <img class="logo-img" src="src/assets/svg/logo.svg" alt="logo" />
           </a>
 
           <nav class="header__content-navigation">
@@ -36,10 +36,9 @@
 
           <a href="#menu" class="header__menu-link header__menu-link-active">
             <span class="header__menu-link-text">Menu</span>
-            <img src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
+            <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
           </a>
 
-          <!-- <script defer src="scripts/burgerMenu.js"></script> -->
           <div class="header__burger-menu">
             <input id="burger-menu-toggle" type="checkbox" />
             <label class="header__burger-menu-button" for="burger-menu-toggle">
@@ -65,7 +64,7 @@
               <div class="header__burger-menu-link burger-link">
                 <a href="#menu" class="header__burger-menu-list-link burger-link">
                   <span class="header__burger-menu-link-text">Menu</span>
-                  <img class="burger-menu-img" src="assets/svg/coffee-cup.svg" alt="coffee-cup" />
+                  <img class="burger-menu-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
                 </a>
               </div>
             </div>
@@ -76,7 +75,6 @@
 
     <main>
       <section class="menu" id="menu">
-        <!-- <script type="module" src="scripts/menu-categories.js"></script> -->
         <div class="container">
           <div class="menu__offer">
             <h2 class="menu__heading heading-2">
@@ -88,7 +86,7 @@
                 <label id="coffeeTabBtn" class="menu__tab-btn button-link">
                   <input id="coffeeTabInput" type="radio" name="menu-tab-btn" value="coffee" checked />
                   <span class="menu__tab-icon">
-                    <img src="assets/images/menu-tab-icon-1.png" alt="coffee-tab-icon" />
+                    <img src="src/assets/images/menu-tab-icon-1.png" alt="coffee-tab-icon" />
                   </span>
                   Coffee
                 </label>
@@ -97,7 +95,7 @@
                 <label id="teaTabBtn" class="menu__tab-btn button-link">
                   <input id="teaTabInput" type="radio" name="menu-tab-btn" value="tea" />
                   <span class="menu__tab-icon">
-                    <img src="assets/images/menu-tab-icon-2.png" alt="tea-tab-icon" />
+                    <img src="src/assets/images/menu-tab-icon-2.png" alt="tea-tab-icon" />
                   </span>
                   Tea
                 </label>
@@ -106,7 +104,7 @@
                 <label id="dessertTabBtn" class="menu__tab-btn button-link">
                   <input id="dessertTabInput" type="radio" name="menu-tab-btn" value="dessert" />
                   <span class="menu__tab-icon">
-                    <img src="assets/images/menu-tab-icon-3.png" alt="dessert-tab-icon" />
+                    <img src="src/assets/images/menu-tab-icon-3.png" alt="dessert-tab-icon" />
                   </span>
                   Dessert
                 </label>
@@ -118,7 +116,7 @@
             <ul class="menu__grid"></ul>
 
             <button class="menu__refresh-btn _active" id="refresh-btn">
-              <img src="assets/svg/refresh.svg" alt="refresh.svg" />
+              <img src="src/assets/svg/refresh.svg" alt="refresh.svg" />
             </button>
           </div>
         </div>
@@ -129,7 +127,7 @@
         <div class="modal__content">
           <div class="modal-description-card">
             <div class="modal__img-container">
-              <img class="modal__img" id="modal-img" src="assets/images/coffee-1.jpg" alt="" />
+              <img class="modal__img" id="modal-img" src="src/assets/images/coffee-1.jpg" alt="" />
             </div>
             <div class="modal__description">
               <div>
@@ -323,6 +321,6 @@
       </div>
     </footer>
 
-    <script type="module" src="/src/menu.ts"></script>
+    <script type="module" src="src/menu.ts"></script>
   </body>
 </html>

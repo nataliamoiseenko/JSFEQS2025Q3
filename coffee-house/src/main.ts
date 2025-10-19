@@ -1,4 +1,4 @@
-import '../scripts/burgerMenu';
-import '../scripts/carousel';
+import './scripts/burgerMenu';
+import './scripts/carousel';
 
 console.log('main');

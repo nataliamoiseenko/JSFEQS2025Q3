@@ -6,7 +6,7 @@ export const MENU: MenuItem[] = [
     description: 'Fragrant black coffee with Jameson Irish whiskey and whipped milk',
     price: '7.00',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-1.jpg',
+    imgSrc: 'src/assets/images/coffee-1.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -41,7 +41,7 @@ export const MENU: MenuItem[] = [
     description: 'Classic coffee with milk and Kahlua liqueur under a cap of frothed milk',
     price: '7.00',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-2.jpg',
+    imgSrc: 'src/assets/images/coffee-2.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -76,7 +76,7 @@ export const MENU: MenuItem[] = [
     description: 'Espresso with frothed milk, cream and aromatic honey',
     price: '5.50',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-3.jpg',
+    imgSrc: 'src/assets/images/coffee-3.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -111,7 +111,7 @@ export const MENU: MenuItem[] = [
     description: 'Cappuccino with soft thick foam in summer version with ice',
     price: '5.00',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-4.jpg',
+    imgSrc: 'src/assets/images/coffee-4.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -146,7 +146,7 @@ export const MENU: MenuItem[] = [
     description: 'Classic black coffee',
     price: '4.50',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-5.jpg',
+    imgSrc: 'src/assets/images/coffee-5.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -181,7 +181,7 @@ export const MENU: MenuItem[] = [
     description: 'Espresso coffee with the addition of steamed milk and dense milk foam',
     price: '5.50',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-6.jpg',
+    imgSrc: 'src/assets/images/coffee-6.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -216,7 +216,7 @@ export const MENU: MenuItem[] = [
     description: 'Espresso with frothed milk and chocolate',
     price: '5.50',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-7.jpg',
+    imgSrc: 'src/assets/images/coffee-7.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -251,7 +251,7 @@ export const MENU: MenuItem[] = [
     description: 'Fragrant black coffee with cognac and whipped cream',
     price: '6.50',
     category: 'coffee',
-    imgSrc: 'assets/images/coffee-8.jpg',
+    imgSrc: 'src/assets/images/coffee-8.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -286,7 +286,7 @@ export const MENU: MenuItem[] = [
     description: 'Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint',
     price: '4.50',
     category: 'tea',
-    imgSrc: 'assets/images/tea-1.jpg',
+    imgSrc: 'src/assets/images/tea-1.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -321,7 +321,7 @@ export const MENU: MenuItem[] = [
     description: 'Original black tea with fresh ginger, lemon and honey',
     price: '5.00',
     category: 'tea',
-    imgSrc: 'assets/images/tea-2.jpg',
+    imgSrc: 'src/assets/images/tea-2.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -356,7 +356,7 @@ export const MENU: MenuItem[] = [
     description: 'Invigorating black tea with cranberry and honey',
     price: '5.00',
     category: 'tea',
-    imgSrc: 'assets/images/tea-3.jpg',
+    imgSrc: 'src/assets/images/tea-3.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -391,7 +391,7 @@ export const MENU: MenuItem[] = [
     description: 'Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon',
     price: '5.50',
     category: 'tea',
-    imgSrc: 'assets/images/tea-4.jpg',
+    imgSrc: 'src/assets/images/tea-4.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -426,7 +426,7 @@ export const MENU: MenuItem[] = [
     description: 'Philadelphia cheese with lemon zest on a light sponge cake and red currant jam',
     price: '3.50',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-1.jpg',
+    imgSrc: 'src/assets/images/dessert-1.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -461,7 +461,7 @@ export const MENU: MenuItem[] = [
     description: 'Layer cake with cream cheese frosting',
     price: '4.00',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-2.jpg',
+    imgSrc: 'src/assets/images/dessert-2.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -496,7 +496,7 @@ export const MENU: MenuItem[] = [
     description: 'Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar',
     price: '4.50',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-3.jpg',
+    imgSrc: 'src/assets/images/dessert-3.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -531,7 +531,7 @@ export const MENU: MenuItem[] = [
     description: 'Delicate creamy dessert in a caramel basket with wild berries',
     price: '4.00',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-4.jpg',
+    imgSrc: 'src/assets/images/dessert-4.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -566,7 +566,7 @@ export const MENU: MenuItem[] = [
     description: 'Tender pancakes with strawberry jam and fresh strawberries',
     price: '4.50',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-5.jpg',
+    imgSrc: 'src/assets/images/dessert-5.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -601,7 +601,7 @@ export const MENU: MenuItem[] = [
     description: 'Classic honey cake with delicate custard',
     price: '4.50',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-6.jpg',
+    imgSrc: 'src/assets/images/dessert-6.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -636,7 +636,7 @@ export const MENU: MenuItem[] = [
     description: 'Cake with hot chocolate filling and nuts with dried apricots',
     price: '5.50',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-7.jpg',
+    imgSrc: 'src/assets/images/dessert-7.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -671,7 +671,7 @@ export const MENU: MenuItem[] = [
     description: 'A combination of thin sponge cake with cherry jam and light chocolate mousse',
     price: '6.50',
     category: 'dessert',
-    imgSrc: 'assets/images/dessert-8.jpg',
+    imgSrc: 'src/assets/images/dessert-8.jpg',
     sizes: {
       s: {
         size: '50 g',

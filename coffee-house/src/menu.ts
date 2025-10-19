@@ -1,2 +1,2 @@
-import '../scripts/burgerMenu';
-import '../scripts/menu-categories';
+import './scripts/burgerMenu';
+import './scripts/menu-categories';

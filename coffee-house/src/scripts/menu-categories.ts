@@ -1,5 +1,5 @@
 import { MENU } from '../resources/products.js';
-import type { MenuItem } from '../types';
+import type { MenuItem } from '../types/index.js';
 
 const ulGrid = document.getElementsByClassName('menu__grid')[0]!;
 const radioBtns = document.querySelectorAll('input[name="menu-tab-btn"]')!;
