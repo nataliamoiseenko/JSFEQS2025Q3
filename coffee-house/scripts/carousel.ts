@@ -1,4 +1,6 @@
-const SLIDES = [
+import type { Slides } from '../types';
+
+const SLIDES: Slides[] = [
   {
     imgSrc: 'assets/images/coffee-slider-1.png',
     title: "S'mores Frappuccino",
@@ -22,28 +24,31 @@ const SLIDES = [
 ];
 
 let currentIdx = 0;
-const carousel = document.getElementById('carousel');
-const controls = document.getElementById('controls');
-const btnPrev = document.getElementById('carousel-prev');
-const btnNext = document.getElementById('carousel-next');
-const carouselContent = document.getElementById('favourites__carousel-content');
+const carousel = document.getElementById('carousel')!;
+const controls = document.getElementById('controls')!;
+const btnPrev = document.getElementById('carousel-prev')!;
+const btnNext = document.getElementById('carousel-next')!;
+const carouselContent = document.getElementById('favourites__carousel-content')!;
 
-const createSlide = (idx) => {
+const createSlide = (idx: number): void => {
   const img = document.createElement('img');
-  img.src = SLIDES[idx].imgSrc;
-  img.alt = SLIDES[idx].title;
+  const currentSlide = SLIDES[idx];
+  if (!currentSlide) return;
+
+  img.src = currentSlide.imgSrc;
+  img.alt = currentSlide.title;
   img.classList.add('favourites__img');
 
   const heading = document.createElement('h3');
-  heading.innerText = SLIDES[idx].title;
+  heading.innerText = currentSlide.title;
   heading.classList.add('heading-3');
 
   const subtitle = document.createElement('p');
-  subtitle.innerText = SLIDES[idx].subtitle;
+  subtitle.innerText = currentSlide.subtitle;
   subtitle.classList.add('favourites__carousel-subtitle', 'body-medium');
 
   const price = document.createElement('h3');
-  price.innerText = `$${SLIDES[idx].price}`;
+  price.innerText = `$${currentSlide.price}`;
   price.classList.add('favourites__carousel-price', 'heading-3');
 
   const captionDiv = document.createElement('div');
@@ -69,7 +74,7 @@ const createSlide = (idx) => {
   controls.appendChild(control);
 };
 
-const changeCurent = (idx) => {
+const changeCurent = (idx: number): void => {
   const slides = document.getElementsByClassName('favourites__carousel-item');
   const controls = document.getElementsByClassName('favourites__carousel-control');
   if (idx >= slides.length) {
@@ -80,11 +85,11 @@ const changeCurent = (idx) => {
 
   for (let i = 0; i < slides.length; i++) {
     if (idx === i) {
-      slides[i].classList.add('_active');
-      controls[i].classList.add('_active');
+      slides[i]!.classList.add('_active');
+      controls[i]!.classList.add('_active');
     } else {
-      slides[i].classList.remove('_active');
-      controls[i].classList.remove('_active');
+      slides[i]!.classList.remove('_active');
+      controls[i]!.classList.remove('_active');
     }
   }
 
@@ -99,7 +104,7 @@ btnPrev.addEventListener('click', () => changeCurent(currentIdx - 1));
 btnNext.addEventListener('click', () => changeCurent(currentIdx + 1));
 carouselContent.addEventListener('mouseenter', () => {
   clearInterval(autoNext);
-  autoNext = null;
+  autoNext = null!;
 });
 carouselContent.addEventListener('mouseleave', () => {
   autoNext ??= setInterval(() => changeCurent(currentIdx + 1), 3000);

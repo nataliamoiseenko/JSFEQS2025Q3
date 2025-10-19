@@ -1,4 +1,6 @@
-export const MENU = [
+import type { MenuItem } from '../types';
+
+export const MENU: MenuItem[] = [
   {
     name: 'Irish coffee',
     description: 'Fragrant black coffee with Jameson Irish whiskey and whipped milk',

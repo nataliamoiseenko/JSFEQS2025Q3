@@ -1,20 +1,21 @@
 import { MENU } from '../resources/products.js';
+import type { MenuItem } from '../types';
 
-const ulGrid = document.getElementsByClassName('menu__grid')[0];
-const radioBtns = document.querySelectorAll('input[name="menu-tab-btn"]');
-const refreshBtn = document.getElementById('refresh-btn');
+const ulGrid = document.getElementsByClassName('menu__grid')[0]!;
+const radioBtns = document.querySelectorAll('input[name="menu-tab-btn"]')!;
+const refreshBtn = document.getElementById('refresh-btn')!;
 
-const modal = document.getElementById('modal');
-const modalBg = document.getElementById('modal-bg');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalDesc = document.getElementById('modal-desc');
-const modalSizes = document.getElementById('modal-sizes');
-const modalAdds = document.getElementById('modal-adds');
-const modalPrice = document.getElementById('modal-price');
-const modalCloseBtn = document.getElementById('modal-close');
+const modal = document.getElementById('modal')!;
+const modalBg = document.getElementById('modal-bg')!;
+const modalImg = document.getElementById('modal-img')!;
+const modalTitle = document.getElementById('modal-title')!;
+const modalDesc = document.getElementById('modal-desc')!;
+const modalSizes = document.getElementById('modal-sizes')!;
+const modalAdds = document.getElementById('modal-adds')!;
+const modalPrice = document.getElementById('modal-price')!;
+const modalCloseBtn = document.getElementById('modal-close')!;
 
-const createCardLi = (params) => {
+const createCardLi = (params: MenuItem): HTMLLIElement => {
   const img = document.createElement('img');
   img.classList.add('menu__img');
   img.src = params.imgSrc;
@@ -42,7 +43,7 @@ const createCardLi = (params) => {
 
   const btn = document.createElement('button');
   btn.classList.add('menu__preview-item-link');
-  btn.addEventListener('click', toggleModal.bind(null, params));
+  btn.addEventListener('click', toggleModal.bind(null, params, true));
   btn.appendChild(imgContainer);
   btn.appendChild(descContainer);
 
@@ -53,10 +54,10 @@ const createCardLi = (params) => {
   return li;
 };
 
-const toggleModal = (params, isOpen = true) => {
+const toggleModal = (params: MenuItem | null, isOpen = true): void => {
   if (params) {
-    modalImg.src = params.imgSrc;
-    modalImg.alt = `${params.name} image`;
+    (modalImg as HTMLImageElement).src = params.imgSrc;
+    (modalImg as HTMLImageElement).alt = `${params.name} image`;
 
     modalTitle.innerText = params.name;
     modalDesc.innerText = params.description;
@@ -123,26 +124,26 @@ const toggleModal = (params, isOpen = true) => {
   isOpen ? document.body.classList.add('no-scroll') : document.body.classList.remove('no-scroll');
 };
 
-const calculatePrice = (basePrice) => {
+const calculatePrice = (basePrice: string): void => {
   let totalPrice = Number(basePrice);
   modalSizes.querySelectorAll('input[name="size"]').forEach((i) => {
-    if (i.checked) totalPrice += Number(i.value);
+    if ((i as HTMLInputElement).checked) totalPrice += Number((i as HTMLInputElement).value);
   });
   modalAdds.querySelectorAll('input[name="additives"]').forEach((i) => {
-    if (i.checked) totalPrice += Number(i.value);
+    if ((i as HTMLInputElement).checked) totalPrice += Number((i as HTMLInputElement).value);
   });
 
   modalPrice.innerText = `$${totalPrice.toFixed(2)}`;
 };
 
-const doFilter = () => {
+const doFilter = (): void => {
   ulGrid.replaceChildren();
 
   for (let i = 0; i < radioBtns.length; i++) {
-    const isChecked = radioBtns[i].checked;
+    const isChecked = (radioBtns[i] as HTMLInputElement).checked;
 
     if (isChecked) {
-      const value = radioBtns[i].value;
+      const value = (radioBtns[i] as HTMLInputElement).value;
 
       const filtered = MENU.filter((i) => value === i.category).map((i) => createCardLi(i));
       filtered.forEach((li) => ulGrid.appendChild(li));
@@ -162,7 +163,7 @@ radioBtns.forEach((btn) => btn.addEventListener('change', doFilter));
 refreshBtn.addEventListener('click', () => {
   const gridLi = document.querySelectorAll('.menu__preview-item');
   gridLi.forEach((li) => {
-    li.style.display = 'block';
+    (li as HTMLElement).style.display = 'block';
     refreshBtn.classList.remove('_active');
   });
 });
