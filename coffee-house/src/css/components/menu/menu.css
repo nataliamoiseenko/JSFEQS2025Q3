@@ -13,6 +13,13 @@
   line-height: 119%;
 }
 
+.menu__content {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
 .menu__tabs {
   display: flex;
   gap: 8px;

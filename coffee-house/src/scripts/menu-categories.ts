@@ -1,9 +1,16 @@
-import { MENU } from '../resources/products.js';
-import type { MenuItem } from '../types/index.js';
+import { Endpoints } from '../resources/consts.js';
+import { MOCKED_MENU } from '../resources/products.js';
+import type { ItemRes, MenuItem } from '../types/index.js';
+import { fetchData } from './api.js';
 
+const menuTotal: MenuItem[] = [];
+
+const menuContent = document.getElementById('menu-content')!;
 const ulGrid = document.getElementsByClassName('menu__grid')[0]!;
 const radioBtns = document.querySelectorAll('input[name="menu-tab-btn"]')!;
 const refreshBtn = document.getElementById('refresh-btn')!;
+const loader = document.getElementById('carousel-loading')!;
+const error = document.getElementById('carousel-error')!;
 
 const modal = document.getElementById('modal')!;
 const modalBg = document.getElementById('modal-bg')!;
@@ -120,8 +127,16 @@ const toggleModal = (params: MenuItem | null, isOpen = true): void => {
     calculatePrice(params.price);
   }
 
-  isOpen ? modal.classList.add('_active') : modal.classList.remove('_active');
-  isOpen ? document.body.classList.add('no-scroll') : document.body.classList.remove('no-scroll');
+  if (isOpen) {
+    modal.classList.add('_active');
+  } else {
+    modal.classList.remove('_active');
+  }
+  if (isOpen) {
+    document.body.classList.add('no-scroll');
+  } else {
+    document.body.classList.remove('no-scroll');
+  }
 };
 
 const calculatePrice = (basePrice: string): void => {
@@ -145,11 +160,15 @@ const doFilter = (): void => {
     if (isChecked) {
       const value = (radioBtns[i] as HTMLInputElement).value;
 
-      const filtered = MENU.filter((i) => value === i.category).map((i) => createCardLi(i));
+      const filtered = menuTotal.filter((i) => value === i.category).map((i) => createCardLi(i));
       filtered.forEach((li) => ulGrid.appendChild(li));
 
       if (window.screen.width < 1440) {
-        filtered.length > 4 ? refreshBtn.classList.add('_active') : refreshBtn.classList.remove('_active');
+        if (filtered.length > 4) {
+          refreshBtn.classList.add('_active');
+        } else {
+          refreshBtn.classList.remove('_active');
+        }
       }
 
       break;
@@ -157,7 +176,25 @@ const doFilter = (): void => {
   }
 };
 
-doFilter();
+const initMenu = async (): Promise<void> => {
+  try {
+    const products = await fetchData<ItemRes[]>(Endpoints.PRODUCTS);
+    products.forEach((i) => {
+      const found = MOCKED_MENU.find((k) => k.id === i.id)!;
+      menuTotal.push({ ...i, ...found });
+    });
+
+    doFilter();
+    menuContent.style.display = 'flex';
+  } catch {
+    error.style.display = 'flex';
+  } finally {
+    loader.style.display = 'none';
+  }
+};
+
+// doFilter();
+initMenu();
 
 radioBtns.forEach((btn) => btn.addEventListener('change', doFilter));
 refreshBtn.addEventListener('click', () => {

@@ -8,12 +8,8 @@ type MenuItemAssitive = {
   'add-price': string;
 };
 
-export type MenuItem = {
+export type MenuItemRaw = {
   id: number;
-  name: string;
-  description: string;
-  price: string;
-  category: string;
   imgSrc: string;
   sizes: {
     s: MenuItemSize;
@@ -28,7 +24,7 @@ export type FavoriteRaw = {
   imgSrc: string;
 };
 
-export type FavoriteRes = {
+export type ItemRes = {
   id: number;
   name: string;
   description: string;
@@ -37,4 +33,6 @@ export type FavoriteRes = {
   category: string;
 };
 
-export type Favorite = FavoriteRaw & FavoriteRes;
+export type Favorite = FavoriteRaw & ItemRes;
+
+export type MenuItem = MenuItemRaw & ItemRes;

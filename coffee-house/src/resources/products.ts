@@ -1,4 +1,4 @@
-import type { FavoriteRaw, MenuItem } from '../types';
+import type { FavoriteRaw, MenuItemRaw } from '../types';
 
 export const FAVORITES: FavoriteRaw[] = [
   { id: 1, imgSrc: 'src/assets/images/favorites/coffee-slider-1.png' },
@@ -11,14 +11,10 @@ export const FAVORITES: FavoriteRaw[] = [
   { id: 8, imgSrc: 'src/assets/images/favorites/coffee-slider-8.png' },
 ];
 
-export const MENU: MenuItem[] = [
+export const MOCKED_MENU: MenuItemRaw[] = [
   {
     id: 1,
-    name: 'Irish coffee',
-    description: 'Fragrant black coffee with Jameson Irish whiskey and whipped milk',
-    price: '7.00',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-1.jpg',
+    imgSrc: 'src/assets/images/products/coffee-1.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -50,11 +46,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 2,
-    name: 'Kahlua coffee',
-    description: 'Classic coffee with milk and Kahlua liqueur under a cap of frothed milk',
-    price: '7.00',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-2.jpg',
+    imgSrc: 'src/assets/images/products//coffee-2.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -86,11 +78,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 3,
-    name: 'Honey raf',
-    description: 'Espresso with frothed milk, cream and aromatic honey',
-    price: '5.50',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-3.jpg',
+    imgSrc: 'src/assets/images/products//coffee-3.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -122,11 +110,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 4,
-    name: 'Ice cappuccino',
-    description: 'Cappuccino with soft thick foam in summer version with ice',
-    price: '5.00',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-4.jpg',
+    imgSrc: 'src/assets/images/products//coffee-4.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -158,11 +142,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 5,
-    name: 'Espresso',
-    description: 'Classic black coffee',
-    price: '4.50',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-5.jpg',
+    imgSrc: 'src/assets/images/products//coffee-5.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -194,11 +174,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 6,
-    name: 'Latte',
-    description: 'Espresso coffee with the addition of steamed milk and dense milk foam',
-    price: '5.50',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-6.jpg',
+    imgSrc: 'src/assets/images/products//coffee-6.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -230,11 +206,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 7,
-    name: 'Latte macchiato',
-    description: 'Espresso with frothed milk and chocolate',
-    price: '5.50',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-7.jpg',
+    imgSrc: 'src/assets/images/products//coffee-7.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -266,11 +238,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 8,
-    name: 'Coffee with cognac',
-    description: 'Fragrant black coffee with cognac and whipped cream',
-    price: '6.50',
-    category: 'coffee',
-    imgSrc: 'src/assets/images/coffee-8.jpg',
+    imgSrc: 'src/assets/images/products//coffee-8.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -302,11 +270,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 9,
-    name: 'Moroccan',
-    description: 'Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint',
-    price: '4.50',
-    category: 'tea',
-    imgSrc: 'src/assets/images/tea-1.jpg',
+    imgSrc: 'src/assets/images/products//tea-1.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -338,11 +302,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 10,
-    name: 'Ginger',
-    description: 'Original black tea with fresh ginger, lemon and honey',
-    price: '5.00',
-    category: 'tea',
-    imgSrc: 'src/assets/images/tea-2.jpg',
+    imgSrc: 'src/assets/images/products//tea-2.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -374,11 +334,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 11,
-    name: 'Cranberry',
-    description: 'Invigorating black tea with cranberry and honey',
-    price: '5.00',
-    category: 'tea',
-    imgSrc: 'src/assets/images/tea-3.jpg',
+    imgSrc: 'src/assets/images/products//tea-3.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -410,11 +366,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 12,
-    name: 'Sea buckthorn',
-    description: 'Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon',
-    price: '5.50',
-    category: 'tea',
-    imgSrc: 'src/assets/images/tea-4.jpg',
+    imgSrc: 'src/assets/images/products//tea-4.jpg',
     sizes: {
       s: {
         size: '200 ml',
@@ -446,11 +398,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 13,
-    name: 'Marble cheesecake',
-    description: 'Philadelphia cheese with lemon zest on a light sponge cake and red currant jam',
-    price: '3.50',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-1.jpg',
+    imgSrc: 'src/assets/images/products//dessert-1.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -482,11 +430,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 14,
-    name: 'Red velvet',
-    description: 'Layer cake with cream cheese frosting',
-    price: '4.00',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-2.jpg',
+    imgSrc: 'src/assets/images/products//dessert-2.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -518,11 +462,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 15,
-    name: 'Cheesecakes',
-    description: 'Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar',
-    price: '4.50',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-3.jpg',
+    imgSrc: 'src/assets/images/products//dessert-3.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -554,11 +494,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 16,
-    name: 'Creme brulee',
-    description: 'Delicate creamy dessert in a caramel basket with wild berries',
-    price: '4.00',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-4.jpg',
+    imgSrc: 'src/assets/images/products//dessert-4.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -590,11 +526,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 17,
-    name: 'Pancakes',
-    description: 'Tender pancakes with strawberry jam and fresh strawberries',
-    price: '4.50',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-5.jpg',
+    imgSrc: 'src/assets/images/products//dessert-5.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -626,11 +558,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 18,
-    name: 'Honey cake',
-    description: 'Classic honey cake with delicate custard',
-    price: '4.50',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-6.jpg',
+    imgSrc: 'src/assets/images/products//dessert-6.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -662,11 +590,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 19,
-    name: 'Chocolate cake',
-    description: 'Cake with hot chocolate filling and nuts with dried apricots',
-    price: '5.50',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-7.jpg',
+    imgSrc: 'src/assets/images/products//dessert-7.jpg',
     sizes: {
       s: {
         size: '50 g',
@@ -698,11 +622,7 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 20,
-    name: 'Black forest',
-    description: 'A combination of thin sponge cake with cherry jam and light chocolate mousse',
-    price: '6.50',
-    category: 'dessert',
-    imgSrc: 'src/assets/images/dessert-8.jpg',
+    imgSrc: 'src/assets/images/products//dessert-8.jpg',
     sizes: {
       s: {
         size: '50 g',

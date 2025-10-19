@@ -81,44 +81,49 @@
               Behind each of our cups hides an <span class="heading-2-accent">amazing surprise</span>
             </h2>
 
-            <fieldset class="menu__tabs">
-              <div class="menu__tab">
-                <label id="coffeeTabBtn" class="menu__tab-btn button-link">
-                  <input id="coffeeTabInput" type="radio" name="menu-tab-btn" value="coffee" checked />
-                  <span class="menu__tab-icon">
-                    <img src="src/assets/images/menu-tab-icon-1.png" alt="coffee-tab-icon" />
-                  </span>
-                  Coffee
-                </label>
+            <div id="menu-content" class="menu__content">
+              <fieldset class="menu__tabs">
+                <div class="menu__tab">
+                  <label id="coffeeTabBtn" class="menu__tab-btn button-link">
+                    <input id="coffeeTabInput" type="radio" name="menu-tab-btn" value="coffee" checked />
+                    <span class="menu__tab-icon">
+                      <img src="src/assets/images/menu-tab-icon-1.png" alt="coffee-tab-icon" />
+                    </span>
+                    Coffee
+                  </label>
+                </div>
+                <div class="menu__tab">
+                  <label id="teaTabBtn" class="menu__tab-btn button-link">
+                    <input id="teaTabInput" type="radio" name="menu-tab-btn" value="tea" />
+                    <span class="menu__tab-icon">
+                      <img src="src/assets/images/menu-tab-icon-2.png" alt="tea-tab-icon" />
+                    </span>
+                    Tea
+                  </label>
+                </div>
+                <div class="menu__tab">
+                  <label id="dessertTabBtn" class="menu__tab-btn button-link">
+                    <input id="dessertTabInput" type="radio" name="menu-tab-btn" value="dessert" />
+                    <span class="menu__tab-icon">
+                      <img src="src/assets/images/menu-tab-icon-3.png" alt="dessert-tab-icon" />
+                    </span>
+                    Dessert
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="menu__grid-content">
+                <ul class="menu__grid"></ul>
+
+                <button class="menu__refresh-btn _active" id="refresh-btn">
+                  <img src="src/assets/svg/refresh.svg" alt="refresh.svg" />
+                </button>
               </div>
-              <div class="menu__tab">
-                <label id="teaTabBtn" class="menu__tab-btn button-link">
-                  <input id="teaTabInput" type="radio" name="menu-tab-btn" value="tea" />
-                  <span class="menu__tab-icon">
-                    <img src="src/assets/images/menu-tab-icon-2.png" alt="tea-tab-icon" />
-                  </span>
-                  Tea
-                </label>
-              </div>
-              <div class="menu__tab">
-                <label id="dessertTabBtn" class="menu__tab-btn button-link">
-                  <input id="dessertTabInput" type="radio" name="menu-tab-btn" value="dessert" />
-                  <span class="menu__tab-icon">
-                    <img src="src/assets/images/menu-tab-icon-3.png" alt="dessert-tab-icon" />
-                  </span>
-                  Dessert
-                </label>
-              </div>
-            </fieldset>
+            </div>
           </div>
 
-          <div class="menu__grid-content">
-            <ul class="menu__grid"></ul>
-
-            <button class="menu__refresh-btn _active" id="refresh-btn">
-              <img src="src/assets/svg/refresh.svg" alt="refresh.svg" />
-            </button>
-          </div>
+          <div class="loading-wrapper" id="carousel-loading"><span class="loader"></span></div>
+          <div class="loading-error" id="carousel-error">Something went wrong. Please, refresh the page</div>
         </div>
       </section>
 

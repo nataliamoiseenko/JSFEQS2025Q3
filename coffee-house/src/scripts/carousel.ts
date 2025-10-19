@@ -1,6 +1,6 @@
 import { Endpoints } from '../resources/consts';
 import { FAVORITES } from '../resources/products';
-import type { Favorite, FavoriteRes } from '../types';
+import type { Favorite, ItemRes } from '../types';
 import { fetchData } from './api';
 
 // const SLIDES: Slides[] = [
@@ -101,7 +101,7 @@ const changeCurent = (idx: number): void => {
 
 const initFavourites = async (): Promise<void> => {
   try {
-    const favs = await fetchData<FavoriteRes[]>(Endpoints.FAVOURITES);
+    const favs = await fetchData<ItemRes[]>(Endpoints.FAVOURITES);
     const favsWithImg: Favorite[] = favs.map((i) => {
       const img = FAVORITES.find((k) => k.id === i.id)?.imgSrc ?? '';
       return { ...i, imgSrc: img };
