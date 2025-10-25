@@ -81,10 +81,15 @@ svg.fillCurrent *[stroke] {
 }
 
 .loading-wrapper {
-  height: 300px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loading-wrapper._300 {
+  height: 300px;
 }
 
 .loader {

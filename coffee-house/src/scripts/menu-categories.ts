@@ -1,6 +1,6 @@
 import { Endpoints } from '../resources/consts.js';
 import { MOCKED_MENU } from '../resources/products.js';
-import type { ItemRes, MenuItem } from '../types/index.js';
+import type { ItemRes, MenuItem, MenuItemDetails } from '../types/index.js';
 import { fetchData } from './api.js';
 
 const menuTotal: MenuItem[] = [];
@@ -14,6 +14,8 @@ const error = document.getElementById('carousel-error')!;
 
 const modal = document.getElementById('modal')!;
 const modalBg = document.getElementById('modal-bg')!;
+const modalContent = document.getElementById('modal-content')!;
+const modalLoader = document.getElementById('modal-loader')!;
 const modalImg = document.getElementById('modal-img')!;
 const modalTitle = document.getElementById('modal-title')!;
 const modalDesc = document.getElementById('modal-desc')!;
@@ -21,6 +23,9 @@ const modalSizes = document.getElementById('modal-sizes')!;
 const modalAdds = document.getElementById('modal-adds')!;
 const modalPrice = document.getElementById('modal-price')!;
 const modalCloseBtn = document.getElementById('modal-close')!;
+const modalError = document.getElementById('modal-error')!;
+
+const addToCartBtn = document.getElementById('add-to-cart')!;
 
 const createCardLi = (params: MenuItem): HTMLLIElement => {
   const img = document.createElement('img');
@@ -61,88 +66,109 @@ const createCardLi = (params: MenuItem): HTMLLIElement => {
   return li;
 };
 
-const toggleModal = (params: MenuItem | null, isOpen = true): void => {
-  if (params) {
-    (modalImg as HTMLImageElement).src = params.imgSrc;
-    (modalImg as HTMLImageElement).alt = `${params.name} image`;
-
-    modalTitle.innerText = params.name;
-    modalDesc.innerText = params.description;
-
-    modalSizes.replaceChildren();
-    Object.entries(params.sizes).forEach(([key, value], i) => {
-      const label = document.createElement('label');
-      label.classList.add('modal__option-container', 'button-link');
-      label.htmlFor = value.size;
-
-      const input = document.createElement('input');
-      input.type = 'radio';
-      input.id = value.size;
-      input.name = 'size';
-      input.value = value['add-price'];
-      if (i === 0) input.checked = true;
-      input.addEventListener('change', calculatePrice.bind(null, params.price));
-
-      const span1 = document.createElement('span');
-      span1.classList.add('modal__option-label');
-      span1.innerText = `${key}`.toUpperCase();
-
-      const span2 = document.createElement('span');
-      span2.innerText = value.size;
-
-      label.appendChild(input);
-      label.appendChild(span1);
-      label.appendChild(span2);
-
-      modalSizes.appendChild(label);
-    });
-
-    modalAdds.replaceChildren();
-    params.additives.forEach((a, i) => {
-      const label = document.createElement('label');
-      label.classList.add('modal__option-container', 'button-link');
-      label.htmlFor = a.name;
-
-      const input = document.createElement('input');
-      input.type = 'checkbox';
-      input.id = a.name;
-      input.name = 'additives';
-      input.value = a['add-price'];
-      input.addEventListener('change', calculatePrice.bind(null, params.price));
-
-      const span1 = document.createElement('span');
-      span1.classList.add('modal__option-label');
-      span1.innerText = `${i + 1}`;
-
-      const span2 = document.createElement('span');
-      span2.innerText = a.name;
-
-      label.appendChild(input);
-      label.appendChild(span1);
-      label.appendChild(span2);
-
-      modalAdds.appendChild(label);
-    });
-
-    calculatePrice(params.price);
-  }
-
-  if (isOpen) {
-    modal.classList.add('_active');
-  } else {
-    modal.classList.remove('_active');
-  }
+const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void> => {
   if (isOpen) {
     document.body.classList.add('no-scroll');
+    modal.classList.add('_active');
+    modalLoader.style.display = 'flex';
+    modalError.style.display = 'none';
   } else {
     document.body.classList.remove('no-scroll');
+    modal.classList.remove('_active');
+    modalContent.style.display = 'none';
+  }
+
+  if (params) {
+    try {
+      const response = await fetchData<Omit<MenuItemDetails, 'imgSrc'>>(`${Endpoints.PRODUCTS}/${params.id}`);
+      const found = menuTotal.find(({ id }) => id === params.id);
+      if (!found) throw new Error();
+
+      const itemDetails: MenuItemDetails = {
+        ...response,
+        imgSrc: found.imgSrc,
+      };
+
+      (modalImg as HTMLImageElement).src = itemDetails.imgSrc;
+      (modalImg as HTMLImageElement).alt = `${itemDetails.name} image`;
+
+      modalTitle.innerText = itemDetails.name;
+      modalDesc.innerText = itemDetails.description;
+
+      modalSizes.replaceChildren();
+      Object.entries(itemDetails.sizes).forEach(([key, value], i) => {
+        const label = document.createElement('label');
+        label.classList.add('modal__option-container', 'button-link');
+        label.title = value.size;
+        label.htmlFor = value.size;
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.id = value.size;
+        input.name = 'size';
+        input.value = value.price;
+        if (i === 0) input.checked = true;
+        input.addEventListener('change', calculatePrice.bind(null, itemDetails.price));
+
+        const span1 = document.createElement('span');
+        span1.classList.add('modal__option-label');
+        span1.innerText = `${key}`.toUpperCase();
+
+        const span2 = document.createElement('span');
+        span2.innerText = value.size;
+
+        label.appendChild(input);
+        label.appendChild(span1);
+        label.appendChild(span2);
+
+        modalSizes.appendChild(label);
+      });
+
+      modalAdds.replaceChildren();
+      itemDetails.additives.forEach((a, i) => {
+        const label = document.createElement('label');
+        label.classList.add('modal__option-container', 'button-link');
+        label.title = a.price;
+        label.htmlFor = a.name;
+
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.id = a.name;
+        input.name = 'additives';
+        input.value = a.price;
+        input.addEventListener('change', calculatePrice.bind(null, itemDetails.price));
+
+        const span1 = document.createElement('span');
+        span1.classList.add('modal__option-label');
+        span1.innerText = `${i + 1}`;
+
+        const span2 = document.createElement('span');
+        span2.innerText = a.name;
+
+        label.appendChild(input);
+        label.appendChild(span1);
+        label.appendChild(span2);
+
+        modalAdds.appendChild(label);
+      });
+
+      calculatePrice(itemDetails.price);
+      modalContent.style.display = 'block';
+    } catch {
+      modalError.style.display = 'flex';
+      document.body.classList.remove('no-scroll');
+      modal.classList.remove('_active');
+      modalContent.style.display = 'none';
+    } finally {
+      modalLoader.style.display = 'none';
+    }
   }
 };
 
 const calculatePrice = (basePrice: string): void => {
   let totalPrice = Number(basePrice);
   modalSizes.querySelectorAll('input[name="size"]').forEach((i) => {
-    if ((i as HTMLInputElement).checked) totalPrice += Number((i as HTMLInputElement).value);
+    if ((i as HTMLInputElement).checked) totalPrice = Number((i as HTMLInputElement).value);
   });
   modalAdds.querySelectorAll('input[name="additives"]').forEach((i) => {
     if ((i as HTMLInputElement).checked) totalPrice += Number((i as HTMLInputElement).value);
@@ -205,5 +231,12 @@ refreshBtn.addEventListener('click', () => {
   });
 });
 
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  toggleModal(null, false);
+});
+
 modalBg.addEventListener('click', toggleModal.bind(null, null, false));
 modalCloseBtn.addEventListener('click', toggleModal.bind(null, null, false));
+
+addToCartBtn.addEventListener('click', toggleModal.bind(null, null, false));
