@@ -5,7 +5,7 @@ type MenuItemSize = {
   // 'add-price': string;
 };
 
-type MenuItemAssitive = {
+type MenuItemAdditive = {
   name: string;
   price: string;
   discountPrice?: string;
@@ -40,9 +40,14 @@ export type MenuItemDetails = ItemRes & {
     xl: MenuItemSize;
     xxl?: MenuItemSize;
   };
-  additives: MenuItemAssitive[];
+  additives: MenuItemAdditive[];
 };
 
 export type Favorite = FavoriteRaw & ItemRes;
 
 export type MenuItem = MenuItemRaw & ItemRes;
+
+export type ItemToCart = MenuItemDetails & {
+  selectedSize?: string | null;
+  selectedAdditives?: string[];
+};

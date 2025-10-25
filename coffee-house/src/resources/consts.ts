@@ -4,3 +4,5 @@ export enum Endpoints {
   FAVOURITES = '/products/favorites',
   PRODUCTS = '/products',
 }
+
+export const CART_KEY = 'coffe-house-cart';

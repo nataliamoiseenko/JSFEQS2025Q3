@@ -1,9 +1,15 @@
-import { Endpoints } from '../resources/consts.js';
+import { CART_KEY, Endpoints } from '../resources/consts.js';
 import { MOCKED_MENU } from '../resources/products.js';
-import type { ItemRes, MenuItem, MenuItemDetails } from '../types/index.js';
+import type { ItemRes, ItemToCart, MenuItem, MenuItemDetails } from '../types/index.js';
 import { fetchData } from './api.js';
 
 const menuTotal: MenuItem[] = [];
+
+let inputHandlers: [HTMLInputElement, () => void][] = [];
+let btnHandlers: [HTMLElement, () => void][] = [];
+
+let selectedSize: string | null = null;
+let selectedAdditives: string[] = [];
 
 const menuContent = document.getElementById('menu-content')!;
 const ulGrid = document.getElementsByClassName('menu__grid')[0]!;
@@ -76,6 +82,15 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
     document.body.classList.remove('no-scroll');
     modal.classList.remove('_active');
     modalContent.style.display = 'none';
+    inputHandlers.forEach(([el, handler]) => {
+      el.removeEventListener('change', handler);
+    });
+    btnHandlers.forEach(([el, handler]) => {
+      el.removeEventListener('click', handler);
+    });
+    inputHandlers = btnHandlers = [];
+    selectedSize = null;
+    selectedAdditives = [];
   }
 
   if (params) {
@@ -108,7 +123,9 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
         input.name = 'size';
         input.value = value.price;
         if (i === 0) input.checked = true;
-        input.addEventListener('change', calculatePrice.bind(null, itemDetails.price));
+        const inputHandler = calculatePrice.bind(null, itemDetails);
+        input.addEventListener('change', inputHandler);
+        inputHandlers.push([input, inputHandler]);
 
         const span1 = document.createElement('span');
         span1.classList.add('modal__option-label');
@@ -136,7 +153,9 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
         input.id = a.name;
         input.name = 'additives';
         input.value = a.price;
-        input.addEventListener('change', calculatePrice.bind(null, itemDetails.price));
+        const inputHandler = calculatePrice.bind(null, itemDetails);
+        input.addEventListener('change', inputHandler);
+        inputHandlers.push([input, inputHandler]);
 
         const span1 = document.createElement('span');
         span1.classList.add('modal__option-label');
@@ -152,7 +171,11 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
         modalAdds.appendChild(label);
       });
 
-      calculatePrice(itemDetails.price);
+      calculatePrice(itemDetails);
+      const btnHandler = addToCart.bind(null, itemDetails);
+      addToCartBtn.addEventListener('click', btnHandler);
+      btnHandlers.push([addToCartBtn, btnHandler]);
+
       modalContent.style.display = 'block';
     } catch {
       modalError.style.display = 'flex';
@@ -165,13 +188,21 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
   }
 };
 
-const calculatePrice = (basePrice: string): void => {
-  let totalPrice = Number(basePrice);
+const calculatePrice = (itemDetails: MenuItemDetails): void => {
+  let totalPrice = Number(itemDetails.price);
   modalSizes.querySelectorAll('input[name="size"]').forEach((i) => {
-    if ((i as HTMLInputElement).checked) totalPrice = Number((i as HTMLInputElement).value);
+    if ((i as HTMLInputElement).checked) {
+      totalPrice = Number((i as HTMLInputElement).value);
+      selectedSize = (i as HTMLInputElement).id;
+    }
   });
   modalAdds.querySelectorAll('input[name="additives"]').forEach((i) => {
-    if ((i as HTMLInputElement).checked) totalPrice += Number((i as HTMLInputElement).value);
+    if ((i as HTMLInputElement).checked) {
+      totalPrice += Number((i as HTMLInputElement).value);
+      if (!selectedAdditives.includes((i as HTMLInputElement).id)) selectedAdditives.push((i as HTMLInputElement).id);
+    } else {
+      selectedAdditives = selectedAdditives.filter((a) => a !== (i as HTMLInputElement).id);
+    }
   });
 
   modalPrice.innerText = `$${totalPrice.toFixed(2)}`;
@@ -200,6 +231,19 @@ const doFilter = (): void => {
       break;
     }
   }
+};
+
+const addToCart = (item: MenuItemDetails) => {
+  const savedCart = localStorage.getItem(CART_KEY);
+  if (savedCart) {
+    const items: ItemToCart[] = JSON.parse(savedCart);
+    items.push({ ...item, selectedSize, selectedAdditives });
+    localStorage.setItem(CART_KEY, JSON.stringify(items));
+  } else {
+    localStorage.setItem(CART_KEY, JSON.stringify([{ ...item, selectedSize, selectedAdditives }]));
+  }
+
+  toggleModal(null, false);
 };
 
 const initMenu = async (): Promise<void> => {
@@ -239,4 +283,4 @@ document.addEventListener('keydown', (e) => {
 modalBg.addEventListener('click', toggleModal.bind(null, null, false));
 modalCloseBtn.addEventListener('click', toggleModal.bind(null, null, false));
 
-addToCartBtn.addEventListener('click', toggleModal.bind(null, null, false));
+// addToCartBtn.addEventListener('click', toggleModal.bind(null, null, false));

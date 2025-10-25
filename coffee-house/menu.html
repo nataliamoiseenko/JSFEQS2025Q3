@@ -33,11 +33,17 @@
               </li>
             </ul>
           </nav>
+          <div class="header__content-aside">
+            <a href="cart.html" class="header__menu-link">
+              <img src="src/assets/svg/shopping-bag.svg" alt="shopping-bag" />
+              <span class="header__menu-link-text">2</span>
+            </a>
 
-          <a href="#menu" class="header__menu-link header__menu-link-active">
-            <span class="header__menu-link-text">Menu</span>
-            <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
-          </a>
+            <a href="#menu" class="header__menu-link header__menu-link-active">
+              <span class="header__menu-link-text">Menu</span>
+              <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
+            </a>
+          </div>
 
           <div class="header__burger-menu">
             <input id="burger-menu-toggle" type="checkbox" />
@@ -67,6 +73,13 @@
                   <img class="burger-menu-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
                 </a>
               </div>
+
+              <div class="header__burger-menu-link burger-link">
+                <a href="#cart" class="header__burger-menu-list-link burger-link">
+                  <span class="header__burger-menu-link-text">Cart</span>
+                  <img class="burger-menu-img" src="src/assets/svg/shopping-bag.svg" alt="coffee-cup" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -80,6 +93,9 @@
             <h2 class="menu__heading heading-2">
               Behind each of our cups hides an <span class="heading-2-accent">amazing surprise</span>
             </h2>
+            <div class="loading-error" id="modal-error">
+              Something went wrong when loading the modal. Please, try again
+            </div>
 
             <div id="menu-content" class="menu__content">
               <fieldset class="menu__tabs">
@@ -122,14 +138,36 @@
             </div>
           </div>
 
-          <div class="loading-wrapper" id="carousel-loading"><span class="loader"></span></div>
+          <div class="loading-wrapper _300" id="carousel-loading"><span class="loader"></span></div>
           <div class="loading-error" id="carousel-error">Something went wrong. Please, refresh the page</div>
         </div>
       </section>
 
       <section class="modal" id="modal">
-        <div class="modal__bg" id="modal-bg"></div>
-        <div class="modal__content">
+        <div class="modal__bg" id="modal-bg">
+          <div class="loading-wrapper" id="modal-loader"><span class="loader"></span></div>
+        </div>
+
+        <div class="modal__content" id="modal-content">
+          <button class="modal__close" id="modal-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path
+                d="M0.75 0.75L12.0637 12.0637"
+                stroke="#E1D4C9"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M0.75 12.0637L12.0637 0.750013"
+                stroke="#E1D4C9"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
           <div class="modal-description-card">
             <div class="modal__img-container">
               <img class="modal__img" id="modal-img" src="src/assets/images/coffee-1.jpg" alt="" />
@@ -161,7 +199,7 @@
                   loyalty points and enjoy your favorite coffee with up to 20% discount.
                 </p>
               </div>
-              <button class="modal__description-button button-link" id="modal-close">Close</button>
+              <button class="modal__description-button button-link" id="add-to-cart">Add to cart</button>
             </div>
           </div>
         </div>

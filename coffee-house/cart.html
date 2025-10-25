@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/cart.css" />
     <link rel="icon" href="src/assets/svg/coffee-cup.svg" />
     <title>Coffee House</title>
   </head>
@@ -11,29 +11,39 @@
     <header class="header">
       <div class="container">
         <div class="header__content">
-          <img class="logo-img" src="src/assets/svg/logo.svg" alt="logo" />
+          <a href="index.html">
+            <img class="logo-img" src="src/assets/svg/logo.svg" alt="logo" />
+          </a>
 
           <nav class="header__content-navigation">
             <ul class="header__content-navigation-list">
               <li class="header__content-navigation-list-item">
-                <a href="#favourites" class="header__content-navigation-list-link button-link">Favorite coffee</a>
+                <a href="index.html#favourites" class="header__content-navigation-list-link button-link"
+                  >Favorite coffee</a
+                >
               </li>
               <li class="header__content-navigation-list-item">
-                <a href="#about" class="header__content-navigation-list-link button-link">About</a>
+                <a href="index.html#about" class="header__content-navigation-list-link button-link">About</a>
               </li>
               <li class="header__content-navigation-list-item">
-                <a href="#mobile-app" class="header__content-navigation-list-link button-link">Mobile app</a>
+                <a href="index.html#mobile-app" class="header__content-navigation-list-link button-link">Mobile app</a>
               </li>
               <li class="header__content-navigation-list-item">
-                <a href="#contact-us" class="header__content-navigation-list-link button-link">Contact us</a>
+                <a href="index.html#contact-us" class="header__content-navigation-list-link button-link">Contact us</a>
               </li>
             </ul>
           </nav>
+          <div class="header__content-aside">
+            <a href="#cart" class="header__menu-link">
+              <img src="src/assets/svg/shopping-bag.svg" alt="shopping-bag" />
+              <span class="header__menu-link-text">2</span>
+            </a>
 
-          <a href="menu.html" class="header__menu-link">
-            <span class="header__menu-link-text">Menu</span>
-            <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
-          </a>
+            <a href="menu.html" class="header__menu-link header__menu-link-active">
+              <span class="header__menu-link-text">Menu</span>
+              <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
+            </a>
+          </div>
 
           <div class="header__burger-menu">
             <input id="burger-menu-toggle" type="checkbox" />
@@ -44,16 +54,16 @@
             <div class="header__burger-menu-open">
               <ul class="header__burger-menu-list">
                 <li class="header__burger-menu-list-item">
-                  <a href="#favourites" class="header__burger-menu-list-link burger-link">Favorite coffee</a>
+                  <a href="index.html#favourites" class="header__burger-menu-list-link burger-link">Favorite coffee</a>
                 </li>
                 <li class="header__burger-menu-list-item">
-                  <a href="#about" class="header__burger-menu-list-link burger-link">About</a>
+                  <a href="index.html#about" class="header__burger-menu-list-link burger-link">About</a>
                 </li>
                 <li class="header__burger-menu-list-item">
-                  <a href="#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
+                  <a href="index.html#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
                 </li>
                 <li class="header__burger-menu-list-item">
-                  <a href="#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
+                  <a href="index.html#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
                 </li>
               </ul>
 
@@ -63,6 +73,13 @@
                   <img class="burger-menu-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
                 </a>
               </div>
+
+              <div class="header__burger-menu-link burger-link">
+                <a href="#cart" class="header__burger-menu-list-link burger-link">
+                  <span class="header__burger-menu-link-text">Cart</span>
+                  <img class="burger-menu-img" src="src/assets/svg/shopping-bag.svg" alt="coffee-cup" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -70,178 +87,22 @@
     </header>
 
     <main>
-      <section class="enjoy">
+      <section class="cart" id="cart">
         <div class="container">
-          <div class="enjoy__content">
-            <video class="enjoy__video" src="src/assets/video/enjoy.mp4" autoplay loop muted></video>
-            <div class="enjoy__content-wrapper">
-              <h1 class="enjoy__heading heading-1">
-                <span class="heading-1-accent">Enjoy</span> premium coffee at our charming cafe
-              </h1>
-              <p class="enjoy__paragraph body-medium">
-                With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular
-                destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite
-                beverage.
-              </p>
-              <a href="menu.html" class="enjoy__button button-link">
-                <span class="enjoy__button-text">Menu</span>
-                <img class="enjoy__button-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
-              </a>
+          <h2 class="cart__heading heading-2">Cart</h2>
+
+          <div id="cart-content" class="cart__content">
+            <ul class="cart__list" id="cart-list"></ul>
+
+            <h3 class="cart__total-price heading-3">
+              <span>Total:</span>
+              <span class="cart-price" id="cart-total">$8.00</span>
+            </h3>
+
+            <div class="cart__buttons-container">
+              <button class="cart__button button-link" id="cart-sign-in">Sign In</button>
+              <button class="cart__button button-link" id="cart-registration">Registration</button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="favourites" id="favourites">
-        <div class="container">
-          <h2 class="favourites__heading heading-2">
-            Choose your <span class="heading-2-accent">favorite</span> coffee
-          </h2>
-          <div id="carousel-content" class="favourites__carousel-content">
-            <div class="favourites__carousel-center">
-              <button class="favourites__carousel-btn" id="carousel-prev">
-                <svg
-                  class="fillCurrent"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M18.5 12H6M6 12L12 6M6 12L12 18"
-                    stroke="#403F3D"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-
-              <div class="favourites__carousel" id="carousel"></div>
-
-              <button class="favourites__carousel-btn" id="carousel-next">
-                <svg
-                  class="fillCurrent"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18"
-                    stroke="#403F3D"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="favourites__carousel-controls" id="controls"></div>
-          </div>
-
-          <div class="loading-wrapper _300" id="carousel-loading"><span class="loader"></span></div>
-          <div class="loading-error" id="carousel-error">Something went wrong. Please, refresh the page</div>
-        </div>
-      </section>
-
-      <section class="about" id="about">
-        <div class="container">
-          <h2 class="about__heading heading-2">
-            Resource is <span class="heading-2-accent">the perfect and cozy place</span> where you can enjoy a variety
-            of hot beverages, relax, catch up with friends, or get some work done.
-          </h2>
-          <div class="about__image-wrapper">
-            <div class="about__image-column">
-              <div class="about__image-container _top-left">
-                <img class="about__image" src="src/assets/images/about-1.jpg" alt="about-1" />
-              </div>
-              <div class="about__image-container _bottom_left">
-                <img class="about__image" src="src/assets/images/about-2.jpg" alt="about-2" />
-              </div>
-            </div>
-
-            <div class="about__image-column">
-              <div class="about__image-container _top-right">
-                <img class="about__image" src="src/assets/images/about-3.jpg" alt="about-3" />
-              </div>
-              <div class="about__image-container _bottom-right">
-                <img class="about__image" src="src/assets/images/about-4.jpg" alt="about-4" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mobile-app" id="mobile-app">
-        <div class="container">
-          <div class="mobile-app__wrapper">
-            <div class="mobile-app__info">
-              <h2 class="mobile-app__heading heading-2">
-                <span class="heading-2-accent">Download</span> our apps to start ordering
-              </h2>
-              <p class="mobile-app__paragraph body-medium">
-                Download the Resource app today and experience the comfort of ordering your favorite coffee from
-                wherever you are
-              </p>
-              <div class="mobile-app__button-wrapper">
-                <a class="mobile-app__button">
-                  <svg
-                    class="fillCurrent"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="33"
-                    viewBox="0 0 28 33"
-                    fill="none"
-                  >
-                    <path
-                      d="M22.7063 17.6307C22.6694 13.6324 26.0641 11.6872 26.2193 11.5966C24.2967 8.86366 21.3169 8.49026 20.2697 8.46048C17.767 8.20369 15.3393 9.92062 14.0644 9.92062C12.764 9.92062 10.8008 8.48529 8.68482 8.52747C5.96196 8.56841 3.41468 10.1055 2.01762 12.4923C-0.865556 17.359 1.28474 24.5108 4.04705 28.4446C5.42884 30.3712 7.04347 32.5223 9.15687 32.4466C11.2245 32.3635 11.9968 31.1614 14.4919 31.1614C16.9641 31.1614 17.6893 32.4466 19.8447 32.3983C22.0637 32.3635 23.4608 30.463 24.7942 28.519C26.3911 26.3108 27.0323 24.1362 27.0578 24.0245C27.0056 24.0071 22.7483 22.4229 22.7063 17.6307Z"
-                      fill="#403F3D"
-                    />
-                    <path
-                      d="M18.6347 5.87268C19.7468 4.51675 20.5076 2.67205 20.2964 0.800049C18.6869 0.86952 16.674 1.88554 15.5149 3.21169C14.4893 4.38029 13.5732 6.29571 13.8099 8.097C15.6179 8.2285 17.4743 7.20752 18.6347 5.87268Z"
-                      fill="#403F3D"
-                    />
-                  </svg>
-                  <div class="mobile-app__button-text app-store-text">
-                    <span class="mobile-app__button-text-title">Available on the</span>
-                    <span class="mobile-app__button-text-subtitle">App Store</span>
-                  </div>
-                </a>
-                <a class="mobile-app__button">
-                  <svg
-                    class="fillCurrent"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="31"
-                    height="34"
-                    viewBox="0 0 31 34"
-                    fill="none"
-                  >
-                    <path
-                      d="M0.755796 2.20309C0.393349 2.57302 0.183594 3.14896 0.183594 3.89483V30.4995C0.183594 31.2454 0.393349 31.8213 0.755796 32.1913L0.845252 32.2725L16.1359 17.3701V17.0182L0.845252 2.11587L0.755796 2.20309Z"
-                      fill="#403F3D"
-                    />
-                    <path
-                      d="M23.0776 22.34L17.9863 17.3701V17.0182L23.0837 12.0482L23.1979 12.1129L29.2345 15.4618C30.9573 16.4122 30.9573 17.9761 29.2345 18.9325L23.1979 22.2754L23.0776 22.34Z"
-                      fill="#403F3D"
-                    />
-                    <path
-                      d="M22.2733 23.2008L17.0617 18.1196L1.68164 33.1167C2.25384 33.7031 3.18695 33.7738 4.24807 33.1873L22.2733 23.2008Z"
-                      fill="#403F3D"
-                    />
-                    <path
-                      d="M22.2733 11.1876L4.24807 1.20103C3.18695 0.620579 2.25384 0.691254 1.68164 1.27772L17.0617 16.2688L22.2733 11.1876Z"
-                      fill="#403F3D"
-                    />
-                  </svg>
-                  <div class="mobile-app__button-text">
-                    <span class="mobile-app__button-text-title">Available on</span>
-                    <span class="mobile-app__button-text-subtitle">Google Play</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <img class="mobile-app__image" src="src/assets/images/mobile-screens.png" alt="mobile-screens" />
           </div>
         </div>
       </section>
@@ -405,6 +266,6 @@
       </div>
     </footer>
 
-    <script type="module" src="src/main.ts"></script>
+    <script type="module" src="src/cart.ts"></script>
   </body>
 </html>
