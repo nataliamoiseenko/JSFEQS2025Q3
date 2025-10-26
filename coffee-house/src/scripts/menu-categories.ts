@@ -1,4 +1,4 @@
-import { CART_KEY, Endpoints } from '../resources/consts.js';
+import { StorageKeys, Endpoints } from '../resources/consts.js';
 import { MOCKED_MENU } from '../resources/products.js';
 import type { ItemRes, ItemToCart, MenuItem, MenuItemDetails } from '../types/index.js';
 import { fetchData } from './api.js';
@@ -234,13 +234,13 @@ const doFilter = (): void => {
 };
 
 const addToCart = (item: MenuItemDetails) => {
-  const savedCart = localStorage.getItem(CART_KEY);
+  const savedCart = localStorage.getItem(StorageKeys.CART);
   if (savedCart) {
     const items: ItemToCart[] = JSON.parse(savedCart);
     items.push({ ...item, selectedSize, selectedAdditives });
-    localStorage.setItem(CART_KEY, JSON.stringify(items));
+    localStorage.setItem(StorageKeys.CART, JSON.stringify(items));
   } else {
-    localStorage.setItem(CART_KEY, JSON.stringify([{ ...item, selectedSize, selectedAdditives }]));
+    localStorage.setItem(StorageKeys.CART, JSON.stringify([{ ...item, selectedSize, selectedAdditives }]));
   }
 
   toggleModal(null, false);

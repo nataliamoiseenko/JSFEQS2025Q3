@@ -51,3 +51,19 @@ export type ItemToCart = MenuItemDetails & {
   selectedSize?: string | null;
   selectedAdditives?: string[];
 };
+
+export type PaymentMethod = 'cash' | 'card';
+
+export type UserRes = {
+  access_token: string;
+  user: {
+    city: string;
+    createdAt: string;
+    houseNumber: number;
+    id: number;
+    login: string;
+    paymentMethod: PaymentMethod;
+    street: string;
+  };
+  message: string;
+};

@@ -1,0 +1,84 @@
+.register__heading {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.register__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.register__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.register__field label,
+.register__field legend {
+  color: var(--text-dark);
+}
+
+.register__input {
+  height: 56px;
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.register__field-error {
+  display: none;
+  color: red;
+  font-size: 8px;
+}
+
+.register__input._error {
+  border: 1px solid red;
+}
+
+.register__input._error + .register__field-error {
+  display: block;
+}
+
+.register__pay {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.register__pay label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.register__pay-input {
+  width: 16px;
+  height: 16px;
+  appearance: auto;
+}
+
+.register__action {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.register__submit {
+  width: 200px;
+  height: 44px;
+  border: 1px solid var(--border-dark);
+  border-radius: 22px;
+  background-color: transparent;
+}
+
+.register__error {
+  display: none;
+  margin-top: 20px;
+  color: red;
+  text-align: center;
+}

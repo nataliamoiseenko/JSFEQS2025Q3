@@ -1,4 +1,4 @@
-import { CART_KEY } from '../resources/consts';
+import { StorageKeys } from '../resources/consts';
 import type { ItemToCart } from '../types';
 
 let cartTotalNumber = 0;
@@ -8,7 +8,7 @@ const cartList = document.getElementById('cart-list')!;
 const cartTotal = document.getElementById('cart-total')!;
 
 const populateCart = (): void => {
-  const saved = localStorage.getItem(CART_KEY);
+  const saved = localStorage.getItem(StorageKeys.CART);
   if (!saved) return;
 
   const savedItems: ItemToCart[] = JSON.parse(saved);
@@ -90,11 +90,11 @@ const removeItem = (itemId: string) => {
     const elId = el.getAttribute('data-id');
     if (elId === itemId) {
       const price = Number(el.querySelector('.cart__price')?.innerHTML.substring(1));
-      const saved = localStorage.getItem(CART_KEY);
+      const saved = localStorage.getItem(StorageKeys.CART);
       if (saved) {
         const parsed: ItemToCart[] = JSON.parse(saved);
         const filtered = parsed.filter((i, idx) => `${i.id}-${idx}` !== itemId);
-        localStorage.setItem(CART_KEY, JSON.stringify(filtered));
+        localStorage.setItem(StorageKeys.CART, JSON.stringify(filtered));
       }
 
       btnListenets.forEach(([el, handler]: [HTMLButtonElement, () => void]) => {

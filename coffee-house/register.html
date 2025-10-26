@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/cart.css" />
+    <link rel="stylesheet" href="src/css/register.css" />
     <link rel="icon" href="src/assets/svg/coffee-cup.svg" />
     <title>Coffee House</title>
   </head>
@@ -87,23 +87,67 @@
     </header>
 
     <main>
-      <section class="cart">
+      <section class="register">
         <div class="container">
-          <h2 class="cart__heading heading-2">Cart</h2>
+          <h2 class="register__heading heading-2">Registration</h2>
 
-          <div id="cart-content" class="cart__content">
-            <ul class="cart__list" id="cart-list"></ul>
+          <form id="register-form" class="register__form">
+            <div class="register__fields">
+              <div class="register__field">
+                <label for="login">Login</label>
+                <input id="login" required name="login" class="register__input" placeholder="Placeholder" />
+                <span class="register__field-error">At least 3 characters, start with a letter, only English letters are allowed</span>
+              </div>
 
-            <h3 class="cart__total-price heading-3">
-              <span>Total:</span>
-              <span class="cart-price" id="cart-total">$8.00</span>
-            </h3>
+              <div class="register__field">
+                <label for="password">Password</label>
+                <input id="password" required name="password" class="register__input" type="password" placeholder="Placeholder" />
+                <span class="register__field-error">At least 6 characters and must contain at least 1 special character</span>
+              </div>
 
-            <div class="cart__buttons-container">
-              <button class="cart__button button-link" id="cart-sign-in">Sign In</button>
-              <button class="cart__button button-link" id="cart-registration">Registration</button>
+              <div class="register__field">
+                <label for="password-confirm">Confirm Password</label>
+                <input id="password-confirm" name="confirmPassword" required class="register__input" type="password" placeholder="Placeholder" />
+                <span class="register__field-error">The two fields must match (case-sensitive)</span>
+              </div>
+
+              <div class="register__field">
+                <label for="city">City</label>
+                <input id="city" required name="city" class="register__input" placeholder="Placeholder" />
+              </div>
+
+              <div class="register__field">
+                <label for="street">Street</label>
+                <input id="street" required name="street" class="register__input" placeholder="Placeholder" />
+              </div>
+
+              <div class="register__field">
+                <label for="house">House Number</label>
+                <input id="house" required name="houseNumber" type="number" min="1" step="1" class="register__input" placeholder="Placeholder" />
+                <span class="register__field-error">Value must be greater than 1</span>
+              </div>
+
+              <fieldset class="register__field">
+                <legend>Pay by</legend>
+                <div class="register__pay">
+                  <label for="cash">
+                    <input id="cash" required class="register__pay-input" value="cash" type="radio" name="paymentMethod" />
+                    Cash
+                  </label>
+                  <label for="card">
+                    <input id="card" required class="register__pay-input" value="card" type="radio" name="paymentMethod" />
+                    Card
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="register__action">
+              <button type="submit" class="register__submit">Registration</button>
             </div>
           </div>
+
+          <div class="register__error" id="register-error"></div>
         </div>
       </section>
     </main>
@@ -266,6 +310,6 @@
       </div>
     </footer>
 
-    <script type="module" src="src/cart.ts"></script>
+    <script type="module" src="src/register.ts"></script>
   </body>
 </html>
