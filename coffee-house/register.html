@@ -96,18 +96,36 @@
               <div class="register__field">
                 <label for="login">Login</label>
                 <input id="login" required name="login" class="register__input" placeholder="Placeholder" />
-                <span class="register__field-error">At least 3 characters, start with a letter, only English letters are allowed</span>
+                <span class="register__field-error"
+                  >At least 3 characters, start with a letter, only English letters are allowed</span
+                >
               </div>
 
               <div class="register__field">
                 <label for="password">Password</label>
-                <input id="password" required name="password" class="register__input" type="password" placeholder="Placeholder" />
-                <span class="register__field-error">At least 6 characters and must contain at least 1 special character</span>
+                <input
+                  id="password"
+                  required
+                  name="password"
+                  class="register__input"
+                  type="password"
+                  placeholder="Placeholder"
+                />
+                <span class="register__field-error"
+                  >At least 6 characters and must contain at least 1 special character</span
+                >
               </div>
 
               <div class="register__field">
                 <label for="password-confirm">Confirm Password</label>
-                <input id="password-confirm" name="confirmPassword" required class="register__input" type="password" placeholder="Placeholder" />
+                <input
+                  id="password-confirm"
+                  name="confirmPassword"
+                  required
+                  class="register__input"
+                  type="password"
+                  placeholder="Placeholder"
+                />
                 <span class="register__field-error">The two fields must match (case-sensitive)</span>
               </div>
 
@@ -123,7 +141,16 @@
 
               <div class="register__field">
                 <label for="house">House Number</label>
-                <input id="house" required name="houseNumber" type="number" min="1" step="1" class="register__input" placeholder="Placeholder" />
+                <input
+                  id="house"
+                  required
+                  name="houseNumber"
+                  type="number"
+                  min="1"
+                  step="1"
+                  class="register__input"
+                  placeholder="Placeholder"
+                />
                 <span class="register__field-error">Value must be greater than 1</span>
               </div>
 
@@ -131,11 +158,25 @@
                 <legend>Pay by</legend>
                 <div class="register__pay">
                   <label for="cash">
-                    <input id="cash" required class="register__pay-input" value="cash" type="radio" name="paymentMethod" />
+                    <input
+                      id="cash"
+                      required
+                      class="register__pay-input"
+                      value="cash"
+                      type="radio"
+                      name="paymentMethod"
+                    />
                     Cash
                   </label>
                   <label for="card">
-                    <input id="card" required class="register__pay-input" value="card" type="radio" name="paymentMethod" />
+                    <input
+                      id="card"
+                      required
+                      class="register__pay-input"
+                      value="card"
+                      type="radio"
+                      name="paymentMethod"
+                    />
                     Card
                   </label>
                 </div>
@@ -145,7 +186,7 @@
             <div class="register__action">
               <button type="submit" class="register__submit">Registration</button>
             </div>
-          </div>
+          </form>
 
           <div class="register__error" id="register-error"></div>
         </div>

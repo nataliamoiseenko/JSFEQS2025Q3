@@ -4,6 +4,7 @@ export enum Endpoints {
   FAVOURITES = '/products/favorites',
   PRODUCTS = '/products',
   REGISTER = '/auth/register',
+  LOGIN = '/auth/login',
 }
 
 export enum StorageKeys {
