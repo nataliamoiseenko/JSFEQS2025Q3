@@ -13,8 +13,20 @@
   display: none;
 }
 
-.header__menu-link {
+.header__content-aside {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__menu-link,
+.header__cart-link {
   display: none;
+}
+
+.header__cart-link {
+  align-items: center;
+  gap: 4px;
 }
 
 .logo-img {

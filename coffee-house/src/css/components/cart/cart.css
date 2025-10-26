@@ -52,14 +52,34 @@
   transform: none;
 }
 
+.cart__prices {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart__price-sec {
+  color: var(--text-accent);
+  text-decoration: line-through;
+}
+
 .cart__total-price {
   padding-left: 48px;
   display: flex;
   justify-content: space-between;
 }
 
+.cart__value {
+  text-transform: capitalize;
+}
+
+.cart__shipping {
+  display: none;
+}
+
 .cart__buttons-container {
   display: flex;
+  margin-top: 40px;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
@@ -74,9 +94,19 @@
   border-radius: 100px;
   background-color: inherit;
   transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
 }
 
 .cart__button:hover {
   color: var(--text-light);
   background-color: var(--bg-container);
+}
+
+.cart__success {
+  margin-top: 40px;
+  display: none;
+  color: var(--text-dark);
+  font-size: 18px;
+  text-align: center;
 }

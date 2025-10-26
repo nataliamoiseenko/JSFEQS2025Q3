@@ -92,6 +92,10 @@ svg.fillCurrent *[stroke] {
   height: 300px;
 }
 
+.loading-wrapper._hidden {
+  display: none;
+}
+
 .loader {
   width: 48px;
   height: 48px;

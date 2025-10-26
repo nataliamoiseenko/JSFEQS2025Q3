@@ -113,11 +113,6 @@
     text-underline-offset: 4px;
   }
 
-  .header__content-aside {
-    display: flex;
-    gap: 32px;
-  }
-
   .header__menu-link {
     display: flex;
     align-items: flex-start;
@@ -136,10 +131,10 @@
   .header__menu-link-active:hover {
     text-decoration: none;
   }
-
+  /* 
   .header__menu-link-text {
     padding-bottom: 5px;
-  }
+  } */
 
   .header__burger-menu {
     display: none;

@@ -2,6 +2,9 @@ import { StorageKeys, Endpoints } from '../resources/consts.js';
 import { MOCKED_MENU } from '../resources/products.js';
 import type { ItemRes, ItemToCart, MenuItem, MenuItemDetails } from '../types/index.js';
 import { fetchData } from './api.js';
+import { isTokenSaved } from './utils.js';
+
+const isLoggedIn = isTokenSaved();
 
 const menuTotal: MenuItem[] = [];
 
@@ -32,6 +35,8 @@ const modalCloseBtn = document.getElementById('modal-close')!;
 const modalError = document.getElementById('modal-error')!;
 
 const addToCartBtn = document.getElementById('add-to-cart')!;
+const cartIcon = document.getElementById('cart-icon')!;
+const cartSum = document.getElementById('cart-sum')!;
 
 const createCardLi = (params: MenuItem): HTMLLIElement => {
   const img = document.createElement('img');
@@ -49,15 +54,25 @@ const createCardLi = (params: MenuItem): HTMLLIElement => {
   const desc = document.createElement('p');
   desc.classList.add('menu__preview-item-subtitle', 'body-medium');
   desc.innerText = params.description;
+
+  const priceWrapper = document.createElement('div');
+  priceWrapper.classList.add('menu__preview-item-prices');
   const price = document.createElement('h3');
   price.classList.add('menu__preview-item-price', 'heading-3');
-  price.innerText = `$${params.price}`;
+  price.innerText = `$${isLoggedIn ? params.discountPrice : params.price}`;
+  priceWrapper.appendChild(price);
+  if (isLoggedIn) {
+    const priceSec = document.createElement('h3');
+    priceSec.classList.add('menu__preview-item-price-sec', 'heading-3');
+    priceSec.innerText = `$${params.price}`;
+    priceWrapper.appendChild(priceSec);
+  }
 
   const descContainer = document.createElement('div');
   descContainer.classList.add('menu__preview-item-description');
   descContainer.appendChild(heading);
   descContainer.appendChild(desc);
-  descContainer.appendChild(price);
+  descContainer.appendChild(priceWrapper);
 
   const btn = document.createElement('button');
   btn.classList.add('menu__preview-item-link');
@@ -121,7 +136,7 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
         input.type = 'radio';
         input.id = value.size;
         input.name = 'size';
-        input.value = value.price;
+        input.value = isLoggedIn ? value.discountPrice ?? value.price : value.price;
         if (i === 0) input.checked = true;
         const inputHandler = calculatePrice.bind(null, itemDetails);
         input.addEventListener('change', inputHandler);
@@ -145,14 +160,14 @@ const toggleModal = async (params: MenuItem | null, isOpen = true): Promise<void
       itemDetails.additives.forEach((a, i) => {
         const label = document.createElement('label');
         label.classList.add('modal__option-container', 'button-link');
-        label.title = a.price;
+        label.title = isLoggedIn ? a.discountPrice ?? a.price : a.price;
         label.htmlFor = a.name;
 
         const input = document.createElement('input');
         input.type = 'checkbox';
         input.id = a.name;
         input.name = 'additives';
-        input.value = a.price;
+        input.value = isLoggedIn ? a.discountPrice ?? a.price : a.price;
         const inputHandler = calculatePrice.bind(null, itemDetails);
         input.addEventListener('change', inputHandler);
         inputHandlers.push([input, inputHandler]);
@@ -239,10 +254,13 @@ const addToCart = (item: MenuItemDetails) => {
     const items: ItemToCart[] = JSON.parse(savedCart);
     items.push({ ...item, selectedSize, selectedAdditives });
     localStorage.setItem(StorageKeys.CART, JSON.stringify(items));
+    cartSum.innerText = `${items.length}`;
   } else {
     localStorage.setItem(StorageKeys.CART, JSON.stringify([{ ...item, selectedSize, selectedAdditives }]));
+    cartSum.innerText = '1';
   }
 
+  if (!isLoggedIn) cartIcon.style.display = 'flex';
   toggleModal(null, false);
 };
 

@@ -114,6 +114,17 @@
   text-align: left;
 }
 
+.menu__preview-item-prices {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu__preview-item-price-sec {
+  color: var(--text-accent);
+  text-decoration: line-through;
+}
+
 .menu__img-container {
   border-radius: 40px;
   overflow: hidden;

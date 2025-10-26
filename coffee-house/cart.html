@@ -33,52 +33,55 @@
               </li>
             </ul>
           </nav>
+
           <div class="header__content-aside">
-            <a href="#cart" class="header__menu-link">
+            <a href="cart.html" class="header__cart-link" id="cart-icon">
               <img src="src/assets/svg/shopping-bag.svg" alt="shopping-bag" />
-              <span class="header__menu-link-text">2</span>
+              <span class="header__menu-link-text" id="cart-sum"></span>
             </a>
 
             <a href="menu.html" class="header__menu-link header__menu-link-active">
               <span class="header__menu-link-text">Menu</span>
               <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
             </a>
-          </div>
 
-          <div class="header__burger-menu">
-            <input id="burger-menu-toggle" type="checkbox" />
-            <label class="header__burger-menu-button" for="burger-menu-toggle">
-              <span class="header__burger-menu-button-vector"></span>
-              <span class="header__burger-menu-button-vector"></span>
-            </label>
-            <div class="header__burger-menu-open">
-              <ul class="header__burger-menu-list">
-                <li class="header__burger-menu-list-item">
-                  <a href="index.html#favourites" class="header__burger-menu-list-link burger-link">Favorite coffee</a>
-                </li>
-                <li class="header__burger-menu-list-item">
-                  <a href="index.html#about" class="header__burger-menu-list-link burger-link">About</a>
-                </li>
-                <li class="header__burger-menu-list-item">
-                  <a href="index.html#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
-                </li>
-                <li class="header__burger-menu-list-item">
-                  <a href="index.html#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
-                </li>
-              </ul>
+            <div class="header__burger-menu">
+              <input id="burger-menu-toggle" type="checkbox" />
+              <label class="header__burger-menu-button" for="burger-menu-toggle">
+                <span class="header__burger-menu-button-vector"></span>
+                <span class="header__burger-menu-button-vector"></span>
+              </label>
+              <div class="header__burger-menu-open">
+                <ul class="header__burger-menu-list">
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#favourites" class="header__burger-menu-list-link burger-link"
+                      >Favorite coffee</a
+                    >
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#about" class="header__burger-menu-list-link burger-link">About</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
+                  </li>
+                </ul>
 
-              <div class="header__burger-menu-link burger-link">
-                <a href="menu.html" class="header__burger-menu-list-link burger-link">
-                  <span class="header__burger-menu-link-text">Menu</span>
-                  <img class="burger-menu-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
-                </a>
-              </div>
+                <div class="header__burger-menu-link burger-link">
+                  <a href="menu.html" class="header__burger-menu-list-link burger-link">
+                    <span class="header__burger-menu-link-text">Menu</span>
+                    <img class="burger-menu-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
+                  </a>
+                </div>
 
-              <div class="header__burger-menu-link burger-link">
-                <a href="#cart" class="header__burger-menu-list-link burger-link">
-                  <span class="header__burger-menu-link-text">Cart</span>
-                  <img class="burger-menu-img" src="src/assets/svg/shopping-bag.svg" alt="coffee-cup" />
-                </a>
+                <div class="header__burger-menu-link burger-link">
+                  <a href="#cart" class="header__burger-menu-list-link burger-link">
+                    <span class="header__burger-menu-link-text">Cart</span>
+                    <img class="burger-menu-img" src="src/assets/svg/shopping-bag.svg" alt="coffee-cup" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -91,18 +94,40 @@
         <div class="container">
           <h2 class="cart__heading heading-2">Cart</h2>
 
-          <div id="cart-content" class="cart__content">
+          <div id="cart-content" class="cart__content" id="cart-content">
             <ul class="cart__list" id="cart-list"></ul>
 
             <h3 class="cart__total-price heading-3">
               <span>Total:</span>
-              <span class="cart-price" id="cart-total">$8.00</span>
+              <span class="cart__value" id="cart-total"></span>
             </h3>
 
-            <div class="cart__buttons-container">
-              <button class="cart__button button-link" id="cart-sign-in">Sign In</button>
-              <button class="cart__button button-link" id="cart-registration">Registration</button>
+            <div class="cart__shipping" id="cart-shipping">
+              <h3 class="cart__total-price heading-3">
+                <span>Address:</span>
+                <span class="cart__value" id="shipping-address"></span>
+              </h3>
+
+              <h3 class="cart__total-price heading-3">
+                <span>Pay by:</span>
+                <span class="cart__value" id="shipping-pay"></span>
+              </h3>
+
+              <div class="cart__buttons-container">
+                <button class="cart__button button-link" id="cart-confirm">Confirm</button>
+              </div>
+              <div class="loading-wrapper _hidden" id="confirm-loader"><span class="loader"></span></div>
+              <div class="loading-error" id="confirm-error">Something went wrong. Please, refresh the page</div>
             </div>
+
+            <div class="cart__buttons-container" id="cart-actions">
+              <a href="/signin" class="cart__button button-link" id="cart-sign-in">Sign In</a>
+              <a href="/register" class="cart__button button-link" id="cart-registration">Registration</a>
+            </div>
+          </div>
+
+          <div class="cart__success" id="cart-success">
+            Thank you for your order! Our manager will contact you shortly.
           </div>
         </div>
       </section>

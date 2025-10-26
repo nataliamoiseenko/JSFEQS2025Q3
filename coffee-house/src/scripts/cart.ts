@@ -1,11 +1,39 @@
-import { StorageKeys } from '../resources/consts';
-import type { ItemToCart } from '../types';
+import { Endpoints, StorageKeys } from '../resources/consts';
+import type { ItemToCart, User } from '../types';
+import { fetchData } from './api';
+import { isTokenSaved } from './utils';
+
+const isLoggedIn = isTokenSaved();
 
 let cartTotalNumber = 0;
 const btnListenets: [HTMLButtonElement, () => void][] = [];
 
+const cartContent = document.getElementById('cart-content')!;
+const cartSuccess = document.getElementById('cart-success')!;
 const cartList = document.getElementById('cart-list')!;
 const cartTotal = document.getElementById('cart-total')!;
+const shipping = document.getElementById('cart-shipping')!;
+const shippingAddress = document.getElementById('shipping-address')!;
+const shippingPay = document.getElementById('shipping-pay')!;
+const confirm = document.getElementById('cart-confirm')!;
+const actionBtns = document.getElementById('cart-actions')!;
+const cartSum = document.getElementById('cart-sum')!;
+
+const loader = document.getElementById('confirm-loader')!;
+const error = document.getElementById('confirm-error')!;
+
+if (isLoggedIn) {
+  const saved = localStorage.getItem(StorageKeys.USER);
+  if (saved) {
+    const user: User = JSON.parse(saved);
+    shippingAddress.innerText = `${user.city}, ${user.street}, ${user.houseNumber}`;
+    shippingPay.innerText = user.paymentMethod;
+    shipping.style.display = 'block';
+    actionBtns.style.display = 'none';
+  }
+} else {
+  actionBtns.style.display = 'flex';
+}
 
 const populateCart = (): void => {
   const saved = localStorage.getItem(StorageKeys.CART);
@@ -25,7 +53,9 @@ const populateCart = (): void => {
     title.innerText = item.name;
     title.classList.add('cart__text-heading', 'heading-3');
     const subTitle = document.createElement('span');
-    subTitle.innerText = `${item.selectedSize}, ${item.selectedAdditives?.join(', ')}`;
+    subTitle.innerText = `${item.selectedSize}${
+      !item.selectedAdditives?.length ? '' : `, ${item.selectedAdditives?.join(', ')}`
+    }`;
     subTitle.classList.add('cart__text-description');
     const headingDiv = document.createElement('div');
     headingDiv.classList.add('cart__item-text');
@@ -37,14 +67,24 @@ const populateCart = (): void => {
     productDiv.appendChild(imgDiv);
     productDiv.appendChild(headingDiv);
 
+    const priceWrapper = document.createElement('div');
+    priceWrapper.classList.add('cart__prices');
     const price = document.createElement('h3');
-    price.innerText = `$${calculateTotalItemPrice(item).toFixed(2)}`;
+    const { totalPrice, totalPriceGuest } = calculateTotalItemPrice(item);
+    price.innerText = `$${totalPrice.toFixed(2)}`;
     price.classList.add('cart__price', 'heading-3');
+    priceWrapper.appendChild(price);
+    if (isLoggedIn) {
+      const priceSec = document.createElement('h3');
+      priceSec.classList.add('cart__price-sec', 'heading-3');
+      priceSec.innerText = `$${totalPriceGuest.toFixed(2)}`;
+      priceWrapper.prepend(priceSec);
+    }
 
     const wrapperDiv = document.createElement('div');
     wrapperDiv.classList.add('cart__item-content');
     wrapperDiv.appendChild(productDiv);
-    wrapperDiv.appendChild(price);
+    wrapperDiv.appendChild(priceWrapper);
 
     const itemId = `${item.id}-${idx}`;
     const trashImg = document.createElement('img');
@@ -69,19 +109,26 @@ const populateCart = (): void => {
   cartTotal.innerText = `$${cartTotalNumber.toFixed(2)}`;
 };
 
-const calculateTotalItemPrice = (item: ItemToCart): number => {
+const calculateTotalItemPrice = (item: ItemToCart): { totalPrice: number; totalPriceGuest: number } => {
   let totalPrice = 0;
+  let totalPriceGuest = 0;
   const base = Object.values(item.sizes).find((o) => o.size === item.selectedSize);
-  if (base) totalPrice += Number(base.price);
+  if (base) {
+    totalPrice += Number(isLoggedIn ? base.discountPrice ?? base.price : base.price);
+    totalPriceGuest += Number(base.price);
+  }
 
   item.selectedAdditives?.forEach((a) => {
     const additive = item.additives.find((i) => i.name === a);
-    if (additive) totalPrice += Number(additive.price);
+    if (additive) {
+      totalPrice += Number(isLoggedIn ? additive.discountPrice ?? additive.price : additive.price);
+      totalPriceGuest += Number(additive.price);
+    }
   });
 
   cartTotalNumber += totalPrice;
 
-  return totalPrice;
+  return { totalPrice, totalPriceGuest };
 };
 
 const removeItem = (itemId: string) => {
@@ -104,6 +151,9 @@ const removeItem = (itemId: string) => {
 
       el.remove();
 
+      const prevCartSum = cartSum.innerText;
+      cartSum.innerText = `${Number(prevCartSum) - 1}`;
+
       cartTotalNumber -= price;
       cartTotal.innerText = `$${cartTotalNumber.toFixed(2)}`;
     }
@@ -111,3 +161,36 @@ const removeItem = (itemId: string) => {
 };
 
 populateCart();
+
+const placeOrder = async () => {
+  loader.style.display = 'flex';
+  try {
+    const saved = localStorage.getItem(StorageKeys.CART);
+    if (!saved) return;
+
+    const savedItems: ItemToCart[] = JSON.parse(saved);
+    const payload = {
+      items: savedItems.map((i) => ({
+        productId: i.id,
+        size: i.selectedSize,
+        additives: i.selectedAdditives,
+        quantity: 1,
+      })),
+      totalPrice: cartTotalNumber,
+    };
+    await fetchData(Endpoints.PLACE_ORDER, { method: 'POST' }, JSON.stringify(payload));
+
+    localStorage.setItem(StorageKeys.CART, JSON.stringify([]));
+    cartTotalNumber = 0;
+    cartSum.innerText = '0';
+    cartContent.style.display = 'none';
+    cartSuccess.style.display = 'block';
+  } catch (err) {
+    error.innerText = err as string;
+    error.style.display = 'block';
+  } finally {
+    loader.style.display = 'none';
+  }
+};
+
+confirm.addEventListener('click', placeOrder);

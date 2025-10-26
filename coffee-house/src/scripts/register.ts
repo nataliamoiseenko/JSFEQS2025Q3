@@ -56,8 +56,13 @@ const handleSubmit = async (e: SubmitEvent): Promise<void> => {
 
   try {
     submitError.style.display = 'none';
-    const { access_token } = await fetchData<UserRes>(Endpoints.REGISTER, { method: 'POST' }, JSON.stringify(payload));
+    const { access_token, user } = await fetchData<UserRes>(
+      Endpoints.REGISTER,
+      { method: 'POST' },
+      JSON.stringify(payload)
+    );
     localStorage.setItem(StorageKeys.ACCESS_TOKEN, access_token);
+    localStorage.setItem(StorageKeys.USER, JSON.stringify(user));
     window.location.replace('/menu');
   } catch (err) {
     submitError.innerText = err as string;

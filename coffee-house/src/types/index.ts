@@ -2,7 +2,6 @@ type MenuItemSize = {
   size: string;
   price: string;
   discountPrice?: string;
-  // 'add-price': string;
 };
 
 type MenuItemAdditive = {
@@ -54,16 +53,18 @@ export type ItemToCart = MenuItemDetails & {
 
 export type PaymentMethod = 'cash' | 'card';
 
+export type User = {
+  city: string;
+  createdAt: string;
+  houseNumber: number;
+  id: number;
+  login: string;
+  paymentMethod: PaymentMethod;
+  street: string;
+};
+
 export type UserRes = {
   access_token: string;
-  user: {
-    city: string;
-    createdAt: string;
-    houseNumber: number;
-    id: number;
-    login: string;
-    paymentMethod: PaymentMethod;
-    street: string;
-  };
+  user: User;
   message: string;
 };

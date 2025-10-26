@@ -5,9 +5,11 @@ export enum Endpoints {
   PRODUCTS = '/products',
   REGISTER = '/auth/register',
   LOGIN = '/auth/login',
+  PLACE_ORDER = '/orders/confirm',
 }
 
 export enum StorageKeys {
   CART = 'coffe-house-cart',
   ACCESS_TOKEN = 'access-token',
+  USER = 'coffe-house-user',
 }
