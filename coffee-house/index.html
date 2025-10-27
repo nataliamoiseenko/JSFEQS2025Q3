@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/coffee-cup-BOsTuhAV.svg" />
+    <title>Coffee House</title>
+    <script type="module" crossorigin src="/assets/main-nMdkQwbL.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/api-D0DhSArP.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-DO6KCWU1.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BldIKr5_.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <img class="logo-img" src="/assets/logo-DvlcYeuM.svg" alt="logo" />
+
+          <nav class="header__content-navigation">
+            <ul class="header__content-navigation-list">
+              <li class="header__content-navigation-list-item">
+                <a href="#favourites" class="header__content-navigation-list-link button-link">Favorite coffee</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a href="#about" class="header__content-navigation-list-link button-link">About</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a href="#mobile-app" class="header__content-navigation-list-link button-link">Mobile app</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a href="#contact-us" class="header__content-navigation-list-link button-link">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__content-aside">
+            <a href="cart.html" class="header__cart-link" id="cart-icon">
+              <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M16.0942%208.36255L17.1455%2015.1959C17.3319%2016.4074%2016.3945%2017.5%2015.1688%2017.5H4.83122C3.60545%2017.5%202.66809%2016.4074%202.85448%2015.1959L3.90576%208.36255C4.05586%207.38689%204.89536%206.66667%205.88251%206.66667H14.1175C15.1046%206.66667%2015.9441%207.38689%2016.0942%208.36255Z'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M11.6663%204.16667C11.6663%203.24619%2010.9201%202.5%209.99967%202.5C9.0792%202.5%208.33301%203.24619%208.33301%204.16667'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="shopping-bag" />
+              <span class="header__menu-link-text" id="cart-sum"></span>
+            </a>
+
+            <a href="menu.html" class="header__menu-link">
+              <span class="header__menu-link-text">Menu</span>
+              <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M14.167%209.76667V11.6667C14.167%2014.8883%2011.5553%2017.5%208.33366%2017.5C5.112%2017.5%202.50033%2014.8883%202.50033%2011.6667V9.76667C2.50033%209.4353%202.76896%209.16667%203.10033%209.16667H13.567C13.8984%209.16667%2014.167%209.4353%2014.167%209.76667Z'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M10.0003%207.50008C10.0003%206.66675%2010.5956%205.83341%2011.786%205.83341C13.101%205.83341%2014.167%204.76743%2014.167%203.45246V2.91675'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M6.66634%207.5V7.08333C6.66634%205.70262%207.78563%204.58333%209.16634%204.58333C10.0868%204.58333%2010.833%203.83714%2010.833%202.91667V2.5'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M13.333%209.16675H15.4163C16.5669%209.16675%2017.4997%2010.0995%2017.4997%2011.2501C17.4997%2012.4007%2016.5669%2013.3334%2015.4163%2013.3334H14.1663'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="coffee-cup" />
+            </a>
+
+            <div class="header__burger-menu">
+              <input id="burger-menu-toggle" type="checkbox" />
+              <label class="header__burger-menu-button" for="burger-menu-toggle">
+                <span class="header__burger-menu-button-vector"></span>
+                <span class="header__burger-menu-button-vector"></span>
+              </label>
+              <div class="header__burger-menu-open">
+                <ul class="header__burger-menu-list">
+                  <li class="header__burger-menu-list-item">
+                    <a href="#favourites" class="header__burger-menu-list-link burger-link">Favorite coffee</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="#about" class="header__burger-menu-list-link burger-link">About</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
+                  </li>
+                </ul>
+
+                <div class="header__burger-menu-link burger-link">
+                  <a href="menu.html" class="header__burger-menu-list-link burger-link">
+                    <span class="header__burger-menu-link-text">Menu</span>
+                    <img class="burger-menu-img" src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M14.167%209.76667V11.6667C14.167%2014.8883%2011.5553%2017.5%208.33366%2017.5C5.112%2017.5%202.50033%2014.8883%202.50033%2011.6667V9.76667C2.50033%209.4353%202.76896%209.16667%203.10033%209.16667H13.567C13.8984%209.16667%2014.167%209.4353%2014.167%209.76667Z'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M10.0003%207.50008C10.0003%206.66675%2010.5956%205.83341%2011.786%205.83341C13.101%205.83341%2014.167%204.76743%2014.167%203.45246V2.91675'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M6.66634%207.5V7.08333C6.66634%205.70262%207.78563%204.58333%209.16634%204.58333C10.0868%204.58333%2010.833%203.83714%2010.833%202.91667V2.5'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M13.333%209.16675H15.4163C16.5669%209.16675%2017.4997%2010.0995%2017.4997%2011.2501C17.4997%2012.4007%2016.5669%2013.3334%2015.4163%2013.3334H14.1663'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="coffee-cup" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="enjoy">
+        <div class="container">
+          <div class="enjoy__content">
+            <video class="enjoy__video" src="/assets/enjoy-BRBGOseH.mp4" autoplay loop muted></video>
+            <div class="enjoy__content-wrapper">
+              <h1 class="enjoy__heading heading-1">
+                <span class="heading-1-accent">Enjoy</span> premium coffee at our charming cafe
+              </h1>
+              <p class="enjoy__paragraph body-medium">
+                With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular
+                destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite
+                beverage.
+              </p>
+              <a href="menu.html" class="enjoy__button button-link">
+                <span class="enjoy__button-text">Menu</span>
+                <img class="enjoy__button-img" src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M14.167%209.76667V11.6667C14.167%2014.8883%2011.5553%2017.5%208.33366%2017.5C5.112%2017.5%202.50033%2014.8883%202.50033%2011.6667V9.76667C2.50033%209.4353%202.76896%209.16667%203.10033%209.16667H13.567C13.8984%209.16667%2014.167%209.4353%2014.167%209.76667Z'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M10.0003%207.50008C10.0003%206.66675%2010.5956%205.83341%2011.786%205.83341C13.101%205.83341%2014.167%204.76743%2014.167%203.45246V2.91675'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M6.66634%207.5V7.08333C6.66634%205.70262%207.78563%204.58333%209.16634%204.58333C10.0868%204.58333%2010.833%203.83714%2010.833%202.91667V2.5'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M13.333%209.16675H15.4163C16.5669%209.16675%2017.4997%2010.0995%2017.4997%2011.2501C17.4997%2012.4007%2016.5669%2013.3334%2015.4163%2013.3334H14.1663'%20stroke='%23403F3D'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="coffee-cup" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="favourites" id="favourites">
+        <div class="container">
+          <h2 class="favourites__heading heading-2">
+            Choose your <span class="heading-2-accent">favorite</span> coffee
+          </h2>
+          <div id="carousel-content" class="favourites__carousel-content">
+            <div class="favourites__carousel-center">
+              <button class="favourites__carousel-btn" id="carousel-prev">
+                <svg
+                  class="fillCurrent"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M18.5 12H6M6 12L12 6M6 12L12 18"
+                    stroke="#403F3D"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <div class="favourites__carousel" id="carousel"></div>
+
+              <button class="favourites__carousel-btn" id="carousel-next">
+                <svg
+                  class="fillCurrent"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18"
+                    stroke="#403F3D"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="favourites__carousel-controls" id="controls"></div>
+          </div>
+
+          <div class="loading-wrapper _300" id="carousel-loading"><span class="loader"></span></div>
+          <div class="loading-error" id="carousel-error">Something went wrong. Please, refresh the page</div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container">
+          <h2 class="about__heading heading-2">
+            Resource is <span class="heading-2-accent">the perfect and cozy place</span> where you can enjoy a variety
+            of hot beverages, relax, catch up with friends, or get some work done.
+          </h2>
+          <div class="about__image-wrapper">
+            <div class="about__image-column">
+              <div class="about__image-container _top-left">
+                <img class="about__image" src="/assets/about-1-C6K78msC.jpg" alt="about-1" />
+              </div>
+              <div class="about__image-container _bottom_left">
+                <img class="about__image" src="/assets/about-2-CJSQPOR-.jpg" alt="about-2" />
+              </div>
+            </div>
+
+            <div class="about__image-column">
+              <div class="about__image-container _top-right">
+                <img class="about__image" src="/assets/about-3-B27zvB9K.jpg" alt="about-3" />
+              </div>
+              <div class="about__image-container _bottom-right">
+                <img class="about__image" src="/assets/about-4-j3tQvjA_.jpg" alt="about-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-app" id="mobile-app">
+        <div class="container">
+          <div class="mobile-app__wrapper">
+            <div class="mobile-app__info">
+              <h2 class="mobile-app__heading heading-2">
+                <span class="heading-2-accent">Download</span> our apps to start ordering
+              </h2>
+              <p class="mobile-app__paragraph body-medium">
+                Download the Resource app today and experience the comfort of ordering your favorite coffee from
+                wherever you are
+              </p>
+              <div class="mobile-app__button-wrapper">
+                <a class="mobile-app__button">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="33"
+                    viewBox="0 0 28 33"
+                    fill="none"
+                  >
+                    <path
+                      d="M22.7063 17.6307C22.6694 13.6324 26.0641 11.6872 26.2193 11.5966C24.2967 8.86366 21.3169 8.49026 20.2697 8.46048C17.767 8.20369 15.3393 9.92062 14.0644 9.92062C12.764 9.92062 10.8008 8.48529 8.68482 8.52747C5.96196 8.56841 3.41468 10.1055 2.01762 12.4923C-0.865556 17.359 1.28474 24.5108 4.04705 28.4446C5.42884 30.3712 7.04347 32.5223 9.15687 32.4466C11.2245 32.3635 11.9968 31.1614 14.4919 31.1614C16.9641 31.1614 17.6893 32.4466 19.8447 32.3983C22.0637 32.3635 23.4608 30.463 24.7942 28.519C26.3911 26.3108 27.0323 24.1362 27.0578 24.0245C27.0056 24.0071 22.7483 22.4229 22.7063 17.6307Z"
+                      fill="#403F3D"
+                    />
+                    <path
+                      d="M18.6347 5.87268C19.7468 4.51675 20.5076 2.67205 20.2964 0.800049C18.6869 0.86952 16.674 1.88554 15.5149 3.21169C14.4893 4.38029 13.5732 6.29571 13.8099 8.097C15.6179 8.2285 17.4743 7.20752 18.6347 5.87268Z"
+                      fill="#403F3D"
+                    />
+                  </svg>
+                  <div class="mobile-app__button-text app-store-text">
+                    <span class="mobile-app__button-text-title">Available on the</span>
+                    <span class="mobile-app__button-text-subtitle">App Store</span>
+                  </div>
+                </a>
+                <a class="mobile-app__button">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="31"
+                    height="34"
+                    viewBox="0 0 31 34"
+                    fill="none"
+                  >
+                    <path
+                      d="M0.755796 2.20309C0.393349 2.57302 0.183594 3.14896 0.183594 3.89483V30.4995C0.183594 31.2454 0.393349 31.8213 0.755796 32.1913L0.845252 32.2725L16.1359 17.3701V17.0182L0.845252 2.11587L0.755796 2.20309Z"
+                      fill="#403F3D"
+                    />
+                    <path
+                      d="M23.0776 22.34L17.9863 17.3701V17.0182L23.0837 12.0482L23.1979 12.1129L29.2345 15.4618C30.9573 16.4122 30.9573 17.9761 29.2345 18.9325L23.1979 22.2754L23.0776 22.34Z"
+                      fill="#403F3D"
+                    />
+                    <path
+                      d="M22.2733 23.2008L17.0617 18.1196L1.68164 33.1167C2.25384 33.7031 3.18695 33.7738 4.24807 33.1873L22.2733 23.2008Z"
+                      fill="#403F3D"
+                    />
+                    <path
+                      d="M22.2733 11.1876L4.24807 1.20103C3.18695 0.620579 2.25384 0.691254 1.68164 1.27772L17.0617 16.2688L22.2733 11.1876Z"
+                      fill="#403F3D"
+                    />
+                  </svg>
+                  <div class="mobile-app__button-text">
+                    <span class="mobile-app__button-text-title">Available on</span>
+                    <span class="mobile-app__button-text-subtitle">Google Play</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <img class="mobile-app__image" src="/assets/mobile-screens-C8m1glu9.png" alt="mobile-screens" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__tile">
+          <div>
+            <h2 class="footer__heading heading-2">
+              Sip, Savor, Smile. <span class="heading-2-accent">It's coffee time!</span>
+            </h2>
+
+            <ul class="footer__social">
+              <li class="footer__social-item">
+                <a href="" class="footer__social-link">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M23 3.01006C23 3.01006 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 23 3.01006 23 3.01006Z"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="footer__social-item">
+                <a href="" class="footer__social-link">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z"
+                      stroke="#E1D4C9"
+                    />
+                    <path
+                      d="M17.5 6.51L17.51 6.49889"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="footer__social-item">
+                <a href="" class="footer__social-link">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="contact-us">
+            <p class="footer__contact-us heading-3">Contact us</p>
+
+            <ul class="footer__contacts">
+              <li class="footer__contact-item">
+                <a
+                  href="https://maps.app.goo.gl/PDM2Sr8p1f31Ltur7"
+                  target="_blank"
+                  class="footer__contact-link body-medium"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M16.6668 8.33342C16.6668 12.0153 10.0002 18.3334 10.0002 18.3334C10.0002 18.3334 3.3335 12.0153 3.3335 8.33342C3.3335 4.65152 6.31826 1.66675 10.0002 1.66675C13.6821 1.66675 16.6668 4.65152 16.6668 8.33342Z"
+                      stroke="#E1D4C9"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M9.99984 9.16667C10.4601 9.16667 10.8332 8.79357 10.8332 8.33333C10.8332 7.8731 10.4601 7.5 9.99984 7.5C9.5396 7.5 9.1665 7.8731 9.1665 8.33333C9.1665 8.79357 9.5396 9.16667 9.99984 9.16667Z"
+                      fill="#E1D4C9"
+                      stroke="#E1D4C9"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li class="footer__contact-item">
+                <a href="tel:+16035550123" class="footer__contact-link body-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M15.0984 12.2518L11.6665 12.9167C9.34845 11.7533 7.91654 10.4167 7.08321 8.33341L7.72483 4.89166L6.51197 1.66675L3.72946 1.66675C2.60191 1.66675 1.71466 2.5997 1.90108 3.71173C2.29888 6.08466 3.37231 10.0392 6.24987 12.9167C9.27338 15.9403 13.5661 17.3319 16.1378 17.9289C17.299 18.1985 18.3332 17.2909 18.3332 16.0989L18.3332 13.4844L15.0984 12.2518Z"
+                      stroke="#E1D4C9"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li class="footer__contact-item">
+                <p class="footer__contact-link body-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip0_217_2023)">
+                      <path
+                        d="M10 5L10 10L15 10"
+                        stroke="#E1D4C9"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.99984 18.3334C14.6022 18.3334 18.3332 14.6025 18.3332 10.0001C18.3332 5.39771 14.6022 1.66675 9.99984 1.66675C5.39746 1.66675 1.6665 5.39771 1.6665 10.0001C1.6665 14.6025 5.39746 18.3334 9.99984 18.3334Z"
+                        stroke="#E1D4C9"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_217_2023">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  Mon-Sat: 9:00 AM – 23:00 PM
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
