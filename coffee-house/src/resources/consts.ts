@@ -1,4 +1,4 @@
-export const BASE_API_URL = 'http://coffee-shop-be.eu-central-1.elasticbeanstalk.com';
+export const BASE_API_URL = 'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com';
 
 export enum Endpoints {
   FAVOURITES = '/products/favorites',
