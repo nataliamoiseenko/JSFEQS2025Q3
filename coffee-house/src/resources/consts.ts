@@ -12,4 +12,5 @@ export enum StorageKeys {
   CART = 'coffe-house-cart',
   ACCESS_TOKEN = 'access-token',
   USER = 'coffe-house-user',
+  THEME = 'theme',
 }

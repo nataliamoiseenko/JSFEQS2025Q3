@@ -150,6 +150,7 @@
   display: none;
   width: 60px;
   height: 60px;
+  color: var(--text-dark);
   background: transparent;
   border: 1px solid var(--border-dark);
   border-radius: 50%;
