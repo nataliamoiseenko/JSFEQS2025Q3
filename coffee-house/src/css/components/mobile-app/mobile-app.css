@@ -1,0 +1,57 @@
+.mobile-app__heading {
+  margin-bottom: 40px;
+  color: var(--text-dark);
+}
+
+.mobile-app__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mobile-app__paragraph {
+  margin-bottom: 40px;
+  color: var(--text-dark);
+  letter-spacing: 0.1px;
+}
+
+.mobile-app__image {
+  width: 100%;
+}
+
+.mobile-app__button {
+  padding: 10px 22px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border-dark);
+  transition: all 0.3s ease;
+}
+
+.mobile-app__button:hover {
+  cursor: pointer;
+  background-color: var(--bg-container);
+  color: var(--text-light);
+}
+
+.mobile-app__button-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-store-text {
+  padding-left: 3px;
+}
+
+.mobile-app__button-text-title {
+  font-size: 10px;
+  line-height: 19px;
+}
+
+.mobile-app__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

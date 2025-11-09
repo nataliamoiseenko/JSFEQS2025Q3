@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/cart.css" />
+    <link rel="icon" href="src/assets/svg/coffee-cup.svg" />
+    <title>Coffee House</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <a href="index.html">
+            <img class="logo-img" src="src/assets/svg/logo.svg" alt="logo" />
+          </a>
+
+          <nav class="header__content-navigation">
+            <ul class="header__content-navigation-list">
+              <li class="header__content-navigation-list-item">
+                <a href="index.html#favourites" class="header__content-navigation-list-link button-link"
+                  >Favorite coffee</a
+                >
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a href="index.html#about" class="header__content-navigation-list-link button-link">About</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a href="index.html#mobile-app" class="header__content-navigation-list-link button-link">Mobile app</a>
+              </li>
+              <li class="header__content-navigation-list-item">
+                <a href="index.html#contact-us" class="header__content-navigation-list-link button-link">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__content-aside">
+            <a href="cart.html" class="header__cart-link" id="cart-icon">
+              <img src="src/assets/svg/shopping-bag.svg" alt="shopping-bag" />
+              <span class="header__menu-link-text" id="cart-sum"></span>
+            </a>
+
+            <a href="menu.html" class="header__menu-link header__menu-link-active">
+              <span class="header__menu-link-text">Menu</span>
+              <img src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
+            </a>
+
+            <div class="header__burger-menu">
+              <input id="burger-menu-toggle" type="checkbox" />
+              <label class="header__burger-menu-button" for="burger-menu-toggle">
+                <span class="header__burger-menu-button-vector"></span>
+                <span class="header__burger-menu-button-vector"></span>
+              </label>
+              <div class="header__burger-menu-open">
+                <ul class="header__burger-menu-list">
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#favourites" class="header__burger-menu-list-link burger-link"
+                      >Favorite coffee</a
+                    >
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#about" class="header__burger-menu-list-link burger-link">About</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#mobile-app" class="header__burger-menu-list-link burger-link">Mobile app</a>
+                  </li>
+                  <li class="header__burger-menu-list-item">
+                    <a href="index.html#contact-us" class="header__burger-menu-list-link burger-link">Contact us</a>
+                  </li>
+                </ul>
+
+                <div class="header__burger-menu-link burger-link">
+                  <a href="menu.html" class="header__burger-menu-list-link burger-link">
+                    <span class="header__burger-menu-link-text">Menu</span>
+                    <img class="burger-menu-img" src="src/assets/svg/coffee-cup.svg" alt="coffee-cup" />
+                  </a>
+                </div>
+
+                <div class="header__burger-menu-link burger-link">
+                  <a href="#cart" class="header__burger-menu-list-link burger-link">
+                    <span class="header__burger-menu-link-text">Cart</span>
+                    <img class="burger-menu-img" src="src/assets/svg/shopping-bag.svg" alt="coffee-cup" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart">
+        <div class="container">
+          <h2 class="cart__heading heading-2">Cart</h2>
+
+          <div id="cart-content" class="cart__content" id="cart-content">
+            <ul class="cart__list" id="cart-list"></ul>
+
+            <h3 class="cart__total-price heading-3">
+              <span>Total:</span>
+              <span class="cart__value" id="cart-total"></span>
+            </h3>
+
+            <div class="cart__shipping" id="cart-shipping">
+              <h3 class="cart__total-price heading-3">
+                <span>Address:</span>
+                <span class="cart__value" id="shipping-address"></span>
+              </h3>
+
+              <h3 class="cart__total-price heading-3">
+                <span>Pay by:</span>
+                <span class="cart__value" id="shipping-pay"></span>
+              </h3>
+
+              <div class="cart__buttons-container">
+                <button class="cart__button button-link" id="cart-confirm">Confirm</button>
+              </div>
+              <div class="loading-wrapper _hidden" id="confirm-loader"><span class="loader"></span></div>
+              <div class="loading-error" id="confirm-error">Something went wrong. Please, refresh the page</div>
+            </div>
+
+            <div class="cart__buttons-container" id="cart-actions">
+              <a href="/signin" class="cart__button button-link" id="cart-sign-in">Sign In</a>
+              <a href="/register" class="cart__button button-link" id="cart-registration">Registration</a>
+            </div>
+          </div>
+
+          <div class="cart__success" id="cart-success">
+            Thank you for your order! Our manager will contact you shortly.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__tile">
+          <div>
+            <h2 class="footer__heading heading-2">
+              Sip, Savor, Smile. <span class="heading-2-accent">It's coffee time!</span>
+            </h2>
+
+            <ul class="footer__social">
+              <li class="footer__social-item">
+                <a href="" class="footer__social-link">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M23 3.01006C23 3.01006 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 23 3.01006 23 3.01006Z"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="footer__social-item">
+                <a href="" class="footer__social-link">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z"
+                      stroke="#E1D4C9"
+                    />
+                    <path
+                      d="M17.5 6.51L17.51 6.49889"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="footer__social-item">
+                <a href="" class="footer__social-link">
+                  <svg
+                    class="fillCurrent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z"
+                      stroke="#E1D4C9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="contact-us">
+            <p class="footer__contact-us heading-3">Contact us</p>
+
+            <ul class="footer__contacts">
+              <li class="footer__contact-item">
+                <a
+                  href="https://maps.app.goo.gl/PDM2Sr8p1f31Ltur7"
+                  target="_blank"
+                  class="footer__contact-link body-medium"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M16.6668 8.33342C16.6668 12.0153 10.0002 18.3334 10.0002 18.3334C10.0002 18.3334 3.3335 12.0153 3.3335 8.33342C3.3335 4.65152 6.31826 1.66675 10.0002 1.66675C13.6821 1.66675 16.6668 4.65152 16.6668 8.33342Z"
+                      stroke="#E1D4C9"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M9.99984 9.16667C10.4601 9.16667 10.8332 8.79357 10.8332 8.33333C10.8332 7.8731 10.4601 7.5 9.99984 7.5C9.5396 7.5 9.1665 7.8731 9.1665 8.33333C9.1665 8.79357 9.5396 9.16667 9.99984 9.16667Z"
+                      fill="#E1D4C9"
+                      stroke="#E1D4C9"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li class="footer__contact-item">
+                <a href="tel:+16035550123" class="footer__contact-link body-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M15.0984 12.2518L11.6665 12.9167C9.34845 11.7533 7.91654 10.4167 7.08321 8.33341L7.72483 4.89166L6.51197 1.66675L3.72946 1.66675C2.60191 1.66675 1.71466 2.5997 1.90108 3.71173C2.29888 6.08466 3.37231 10.0392 6.24987 12.9167C9.27338 15.9403 13.5661 17.3319 16.1378 17.9289C17.299 18.1985 18.3332 17.2909 18.3332 16.0989L18.3332 13.4844L15.0984 12.2518Z"
+                      stroke="#E1D4C9"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li class="footer__contact-item">
+                <p class="footer__contact-link body-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip0_217_2023)">
+                      <path
+                        d="M10 5L10 10L15 10"
+                        stroke="#E1D4C9"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.99984 18.3334C14.6022 18.3334 18.3332 14.6025 18.3332 10.0001C18.3332 5.39771 14.6022 1.66675 9.99984 1.66675C5.39746 1.66675 1.6665 5.39771 1.6665 10.0001C1.6665 14.6025 5.39746 18.3334 9.99984 18.3334Z"
+                        stroke="#E1D4C9"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_217_2023">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  Mon-Sat: 9:00 AM – 23:00 PM
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="src/cart.ts"></script>
+  </body>
+</html>
