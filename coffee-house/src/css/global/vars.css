@@ -8,3 +8,14 @@
   --border-light: #c1b6ad;
   --bg-backdrop: #403f3d;
 }
+
+body.dark {
+  --text-dark: #e1d4c9;
+  --text-light: #403f3d;
+  --text-accent: #b0907a;
+  --bg-body: #403f3d;
+  --bg-container: #c1b6ad;
+  --border-dark: #c1b6ad;
+  --border-light: #665f55;
+  --bg-backdrop: #e1d4c9;
+}

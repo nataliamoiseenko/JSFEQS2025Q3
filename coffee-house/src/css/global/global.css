@@ -72,11 +72,11 @@ input {
   appearance: none;
 }
 
-svg.fillCurrent *[fill] {
+svg.fillCurrent *:not(.skipCurrent)[fill] {
   fill: currentColor;
 }
 
-svg.fillCurrent *[stroke] {
+svg.fillCurrent *:not(.skipCurrent)[stroke] {
   stroke: currentColor;
 }
 
@@ -112,6 +112,7 @@ svg.fillCurrent *[stroke] {
   height: 300px;
   justify-content: center;
   align-items: center;
+  color: var(--text-dark);
 }
 
 @keyframes rotation {

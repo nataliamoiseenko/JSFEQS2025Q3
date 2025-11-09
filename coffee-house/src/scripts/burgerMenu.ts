@@ -6,6 +6,7 @@ const bmToggle = document.getElementById('burger-menu-toggle')!;
 const bmLinks = document.getElementsByClassName('header__burger-menu-list-link burger-link');
 const cartIcon = document.getElementById('cart-icon')!;
 const cartSum = document.getElementById('cart-sum')!;
+const themeToggle = document.getElementById('theme-toggle')!;
 
 const isLoggedIn = isTokenSaved();
 const savedCart = localStorage.getItem(StorageKeys.CART);
@@ -16,6 +17,12 @@ if (savedCart) {
 } else if (isLoggedIn) {
   cartSum.innerText = '0';
   cartIcon.style.display = 'flex';
+}
+
+const savedTheme = localStorage.getItem(StorageKeys.THEME);
+if (savedTheme === 'dark') {
+  (themeToggle as HTMLInputElement).checked = true;
+  document.body.classList.add('dark');
 }
 
 bmToggle.addEventListener('change', (e) => {
@@ -32,3 +39,13 @@ for (const link of bmLinks) {
     document.body.classList.remove('no-scroll');
   });
 }
+
+themeToggle.addEventListener('change', () => {
+  if ((themeToggle as HTMLInputElement).checked) {
+    document.body.classList.add('dark');
+    localStorage.setItem(StorageKeys.THEME, 'dark');
+  } else {
+    document.body.classList.remove('dark');
+    localStorage.setItem(StorageKeys.THEME, 'default');
+  }
+});

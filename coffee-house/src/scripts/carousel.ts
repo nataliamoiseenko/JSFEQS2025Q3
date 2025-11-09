@@ -44,7 +44,7 @@ const createSlide = (item: Favorite, idx: number): void => {
 
   const heading = document.createElement('h3');
   heading.innerText = item.name;
-  heading.classList.add('heading-3');
+  heading.classList.add('favourites__carousel-title', 'heading-3');
 
   const subtitle = document.createElement('p');
   subtitle.innerText = item.description;
